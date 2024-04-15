@@ -1,10 +1,31 @@
-import React from 'react'
+import Datetime from 'react-datetime';
 import apple_logo from '../assets/icons/apple_light/icons8-apple-50.png'
 import battery from '../assets/icons/battery.png'
 import wifi from '../assets/icons/wifi.png'
 import search from '../assets/icons/search.png'
+import { useState } from 'react';
+
+function getMacOsFormattedDate(): string {
+    const d = new Date();
+    const options: Intl.DateTimeFormatOptions = {
+      weekday: 'short',
+      month: 'short',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true, // Use 12-hour clock format
+    };
+  
+    const formattedDate = new Intl.DateTimeFormat('en-US', options).format(d);
+
+
+    return formattedDate.replace(/,/g, '');
+  }
+  
 
 const Navbar = () => {
+
+    const formattedDate = getMacOsFormattedDate();
 
   return (
     <div className='fixed top-0 left-0 right-0 h-8 flex items-center justify-between px-4 z-10 backdrop-filter backdrop-brightness-105 backdrop-blur-3xl text-white'> 
@@ -22,8 +43,8 @@ const Navbar = () => {
 
         <div className='flex flex-row items-center justify-center space-x-1 font-Apple_Regular font-bold text-sm'>
             <div className='flex flex-row items-center space-x-1 relative px-2'>
-                <div className='flex items-center'>
-                    100%
+                <div className='flex items-start pt-1'>
+                    99%
                 </div>
                 <div className='flex items-center justify-center'>
                     <img src={battery} className='h-6'/>
@@ -47,8 +68,8 @@ const Navbar = () => {
                 <div className='absolute inset-0 top-0 left-0 hover:bg-slate-100 hover:opacity-50 rounded-md peer-hover/wifi:bg-slate-200 peer-hover/wifi:opacity-50' /> 
             </div>
 
-            <div className='flex items-center justify-center h-6 rounded-md px-2 p-1 mt-1  relative '>
-                Mon 15 April 4:10 pm
+            <div className='flex items-center justify-center h-6 rounded-md px-2 p-1 mt-1 relative font-Apple_Bold '>
+                {formattedDate}
                 <div className='absolute inset-0 top-0 left-0 hover:bg-slate-100 hover:opacity-50 rounded-md peer-hover/wifi:bg-slate-200 peer-hover/wifi:opacity-50' /> 
             </div>
             
