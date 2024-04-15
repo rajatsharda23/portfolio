@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'Apple_Bold';
+  src: url('./assets/fonts/AvenirNextLTPro-Demi.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Apple_Regular';
+  src: url('./assets/fonts/AvenirNextLTPro-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Apple_Italic';
+  src: url('./assets/fonts/AvenirNextLTPro-Italic.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Apple_B_Italic';
+  src: url('./assets/fonts/AvenirNextLTPro-DemiItalic.woff') format('woff');
+}
