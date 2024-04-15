@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import bkgrd from './assets/ui/wallpaper-day.jpg'
 import Navbar from './components/Navbar';
+import Dock from './components/Dock';
 
 function App() {
   return (
@@ -10,7 +11,9 @@ function App() {
       
       <Navbar />
       
-      
+      <div className='flex fixed bottom-0 right-0 left-0'>
+        <Dock/>
+      </div>
       
     </div>
   )
