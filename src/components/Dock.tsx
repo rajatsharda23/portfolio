@@ -15,7 +15,7 @@ import {
       <motion.div
         onMouseMove={(e) => mouseX.set(e.pageX)}
         onMouseLeave={() => mouseX.set(Infinity)}
-        className="mx-auto flex h-16 items-end gap-4 rounded-2xl bg-gray-700 px-4 pb-3"
+        className="mx-auto flex h-20  items-end gap-4 rounded-xl backdrop-filter backdrop-brightness-105 backdrop-blur-3xl px-4 pb-5 border-opacity-20 border border-slate-100"
       >
         
     {new Array(8).fill(0).map((_, i) => ( 
@@ -43,6 +43,7 @@ import {
         style={{ width }}
         className="aspect-square w-10 bg-gray-400"
       />
+      
     );
   }
   
