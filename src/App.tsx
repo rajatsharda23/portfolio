@@ -12,14 +12,18 @@ import ShutSleep from './components/ShutSleep'
 function App() {
   
   const isLocked = useSelector((state: RootState) => state.home.isLocked)
+  const isRestart = useSelector((state: RootState) => state.home.isRestart)
+  const isSleep = useSelector((state: RootState) => state.home.isSleep)
+  const isShutDown = useSelector((state: RootState) => state.home.isShutDown)
+  
   const dispatch = useDispatch()
 
   return (
 
     isLocked?
     <div className='fixed h-screen w-screen'>
-      <ShutSleep />
-      {/* <Login /> */}
+      {isSleep || isRestart || isShutDown?<ShutSleep /> : 
+      <Login />}
     </div>
     :
     <div className='fixed h-screen w-screen bg-light-bg bg-cover'>
