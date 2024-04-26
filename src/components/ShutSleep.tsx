@@ -21,23 +21,23 @@ const ShutSleep = () => {
             if (value === 100) {
                 clearInterval(id);
                 // Trigger actions when value reaches 100
-                dispatch(setSleep(false));
+                dispatch(setSleep(false))
                 dispatch(setRestart(false));
                 dispatch(setShutDown(false));
             } else {
-                setValue((prevValue) => prevValue + 1); 
+                if(isRestart){
+                    setValue((prevValue) => prevValue + 1); 
+                }
             }
         }, 20);
 
         return () => clearInterval(id); // Cleanup interval on unmount
-    }, [dispatch, value]);
+    }, [isRestart, value]);
 
 
     const handleShutdown  = () => {
+        dispatch(setRestart(true))  
         dispatch(setShutDown(false))
-        setValue(0)
-        dispatch(setRestart(true))
-        
     }
 
   return (

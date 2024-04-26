@@ -8,7 +8,7 @@ export const homeSlice = createSlice({
     isLocked : true,
     isSleep : false,
     isRestart : false,
-    isShutDown : false,
+    isShutDown : true,
   },
   reducers: {
     setLock : (state, action) => {
