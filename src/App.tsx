@@ -8,6 +8,7 @@ import type { RootState } from '../src/redux/store'
 import { useSelector, useDispatch } from 'react-redux'
 import { setLock } from './redux/slices/homePage/homeSlice'
 import ShutSleep from './components/ShutSleep'
+import MasterApp from './apps/MasterApp'
 
 function App() {
   
@@ -33,7 +34,7 @@ function App() {
       </div>
 
       <div className='flex justify-center items-center h-screen'> 
-        <Notepad/>
+        <MasterApp />
         {/* <button onClick={()=>dispatch(setLock(true))}>Logout</button> */}
       </div>
       
