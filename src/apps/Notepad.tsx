@@ -6,7 +6,9 @@ import '../components/Resizable.css'
 const Notepad = () => {
  
   return (
-    <div> Hello  ggs</div>
+    <div className='h-full w-full bg-slate-400 rounded-b-lg'> 
+      Hello  ggs
+    </div>
   )
 }
 export default Notepad
