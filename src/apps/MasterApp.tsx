@@ -37,12 +37,15 @@ const MasterApp = () => {
           handle='.drag-handle'
           defaultPosition={setPos}
         >
-          <div className='absolute top-0 left-0 shadow-md border border-gray-600 shadow-gray-600 rounded-xl'>
-            <div className='bg-gray-500 h-6 drag-handle rounded-t-xl rounded-b-none flex items-center p-1 pl-2'>
+          <div className='absolute top-0 left-0 shadow-md border border-gray-600 rounded-xl'>
+            <div className='bg-gray-600 h-8 drag-handle rounded-t-xl rounded-b-none flex items-center p-1 pl-2'>
               <img src={close} className='h-4 mr-1' />
               <img src={minimize} className='h-4 mr-1' />
               <img src={fullScrn} className='h-4' />
+
+              
             </div>
+            
             <ResizableBox
               width={width}
               height={height}
