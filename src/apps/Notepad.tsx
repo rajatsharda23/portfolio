@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Resizable, ResizableBox } from 'react-resizable';
 import Draggable, {DraggableCore} from 'react-draggable'
 import '../components/Resizable.css'
+import { ListFormat } from 'typescript';
 
 const Notepad = () => {
 
@@ -65,7 +66,22 @@ const Notepad = () => {
               </div>
 
               <div className='font-Apple_Regular text-lg pt-8'>
-                para 2
+                I am an avid rock fan, who plays the violin and guitar. I also like to play football and badminton.
+
+              </div>
+
+              <br />
+              <br />
+
+              <div className='text-3xl font-Apple_Bold'>
+                Résumé
+                <div className='font-Apple_Regular text-lg pt-4'>
+                  <ul className="list-disc list-inside">
+                    <li>Normal Version: <a href='https://docs.google.com/document/d/1TURpRTytl0NrM---_L37zU43SrBD8QJh/edit?usp=sharing&ouid=112629307061188286717&rtpof=true&sd=true' target='_blank' className=' underline text-notepadSelected'>Google Docs</a></li>
+                    <li>Interesting Version: <a href='mailto:rajatsharda23@gmail.com' target='_blank' className=' underline text-notepadSelected'>Portfolio Webiste</a></li>
+                  </ul>
+                </div>  
+
               </div>
 
             </div>
@@ -79,13 +95,11 @@ const Notepad = () => {
               </div>
 
               <div className='font-Apple_Regular text-lg pt-8'>
-                para 1
+                This is inspired by macOS and  <a href='https://github.com/Renovamen' target='_blank' className=' underline text-notepadSelected'>@Renovamen</a>'s portfolio website!
+                Developed using React, TypeScript, Redux and Tailwind CSS. <br />
+                <br />
+                <p>The source code is hosted <a href='https://github.com/rajatsharda23' target='_blank' className=' underline text-notepadSelected'>here</a></p>
               </div>
-
-              <div className='font-Apple_Regular text-lg pt-8'>
-                para 2
-              </div>
-
             </div>
              : <div></div>}
 
@@ -98,11 +112,13 @@ const Notepad = () => {
               </div>
 
               <div className='font-Apple_Regular text-lg pt-8'>
-                para 1
-              </div>
-
-              <div className='font-Apple_Regular text-lg pt-8'>
-                para 2
+                Contact me by - 
+                <ul className="list-disc list-inside">
+                  <li>Email: <a href='mailto:rajatsharda23@gmail.com' target='_blank' className=' underline text-notepadSelected'>rajatsharda23@gmail.com</a></li>
+                  <li>Github: <a href='https://github.com/rajatsharda23' target='_blank' className=' underline text-notepadSelected'>@rajatsharda23</a></li>
+                  <li>LinkedIn: <a href='https://www.linkedin.com/in/rajat-sharda-3b562622b/' target='_blank' className=' underline text-notepadSelected'>rajat-sharda</a></li>
+                  <li>Twitter: <a href='https://x.com/RajatSharda_' target='_blank' className=' underline text-notepadSelected'>rajatsharda_</a></li>
+                </ul>
               </div>
 
             </div>
