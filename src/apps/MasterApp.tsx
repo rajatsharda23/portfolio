@@ -1,25 +1,31 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { ResizableBox } from 'react-resizable'
 import Draggable from 'react-draggable'
 import '../components/Resizable.css'
-import Notepad from './Notepad'
 import close from '../assets/icons/mac_close/icons8-macos-close-30.png'
 import minimize from '../assets/icons/mac_minimize/icons8-macos-minimize-30.png'
 import fullScrn from '../assets/icons/mac_FullScrn/icons8-macos-full-screen-30.png'
+import Safari from './Safari'
+import back from '../assets/icons/safariBack.png'
+import fwd from '../assets/icons/safariForward.png'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootState } from '../redux/store'
+import { setSafariUrl, goBack, goForward, setCurrApp } from '../redux/slices/homePage/appSlice'
 
 const MasterApp = () => {
-  type ResizeHandleAxis = 's' | 'w' | 'e' | 'n' | 'sw' | 'nw' | 'se' | 'ne'
-
-  type ResizeCallbackData = {
-    node: HTMLElement,
-    size: { width: number, height: number },
-    handle: ResizeHandleAxis
-  }
+  const dispatch = useDispatch()
+  const safariUrl = useSelector((state: RootState) => state.app.safariUrl)
+  const currApp = useSelector((state: RootState) => state.app.currApp)
 
   const [width, setWidth] = useState<number>(900)
   const [height, setHeight] = useState<number>(700)
+  const [url, setUrl] = useState<string>("")
 
-  const handleResize = (event: any, { size }: ResizeCallbackData) => {
+  useEffect(() => {
+    console.log('Current URL:', url)
+  }, [url])
+
+  const handleResize = (event: any, { size }: { size: { width: number, height: number } }) => {
     setWidth(size.width)
     setHeight(size.height)
   }
@@ -27,6 +33,24 @@ const MasterApp = () => {
   const setPos = {
     x: 400,
     y: 40,
+  }
+
+  const handleKeyDown = (event: any) => {
+    if (event.key === 'Enter') {
+      dispatch(setSafariUrl(url))
+    }
+  }
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUrl(e.target.value)
+  }
+
+  const handleBackClick = () => {
+    dispatch(goBack())
+  }
+
+  const handleForwardClick = () => {
+    dispatch(goForward())
   }
 
   return (
@@ -38,14 +62,41 @@ const MasterApp = () => {
           defaultPosition={setPos}
         >
           <div className='absolute top-0 left-0 shadow-md border border-gray-600 rounded-xl'>
-            <div className='bg-gray-600 h-8 drag-handle rounded-t-xl rounded-b-none flex items-center p-1 pl-2'>
+            <div className={`bg-gray-600 ${currApp === "Safari" ? 'h-14' : 'h-8'} drag-handle rounded-t-xl rounded-b-none flex items-center p-1 pl-3`}>
               <img src={close} className='h-4 mr-1' />
               <img src={minimize} className='h-4 mr-1' />
               <img src={fullScrn} className='h-4' />
 
-              
+              {currApp === "Safari" ?
+                <div className='flex w-full relative'>
+                  <div className='flex items-center w-2/5 pl-4 space-x-1'>
+                    <div className='border border-l-1 border-gray-500 h-full shadow-xl shadow-gray-600 blur-0'></div>
+
+                    <div className='ml-2 hover:bg-gray-100 p-1 hover:opacity-50 rounded-md'>
+                      <img src={back} className='h-5 w-5' onClick={handleBackClick} />
+                    </div>
+
+                    <div className='hover:bg-gray-100 p-1 hover:opacity-50 rounded-md'>
+                      <img src={fwd} className='h-5 w-5' onClick={handleForwardClick} />
+                    </div>
+                  </div>
+
+                  <div className='flex items-start justify-start w-full'>
+                    <input className='flex items-center z-0 justify-center bg-notepadTextBG w-3/5 px-2 rounded-lg text-sm h-10
+                      placeholder:flex placeholder:text-sm placeholder:pl-1 placeholder:font-Apple_Regular'
+                      placeholder='Enter Search or Enter Website' onKeyDown={handleKeyDown} onChange={handleChange}
+                    />
+                  </div>
+                </div> :
+
+                <div className=' w-full flex items-center justify-center pr-12'>
+                  {currApp}
+                </div>
+              }
+
             </div>
-            
+
+
             <ResizableBox
               width={width}
               height={height}
@@ -57,7 +108,7 @@ const MasterApp = () => {
               lockAspectRatio={false}
             >
               <div className='flex items-center justify-center h-full w-full'>
-                <Notepad />
+                <Safari />
               </div>
             </ResizableBox>
           </div>

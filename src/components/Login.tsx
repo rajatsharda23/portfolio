@@ -17,7 +17,7 @@ const Login = () => {
         if (event.key === 'Enter') {
             dispatch(setLock(false))
         }
-    };
+    }
 
 
     return (

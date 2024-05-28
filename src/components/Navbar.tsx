@@ -4,6 +4,8 @@ import battery from '../assets/icons/battery.png'
 import wifi from '../assets/icons/wifi.png'
 import search from '../assets/icons/search.png'
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '../redux/store';
 
 function getMacOsFormattedDate(): string {
     const d = new Date();
@@ -26,6 +28,7 @@ function getMacOsFormattedDate(): string {
 const Navbar = () => {
 
     const formattedDate = getMacOsFormattedDate();
+    const currApp = useSelector((state: RootState) => state.app.currApp)
 
   return (
     <div className='fixed top-0 left-0 right-0 h-8 flex items-center justify-between px-4 z-10 backdrop-filter backdrop-brightness-105 backdrop-blur-3xl text-white'> 
@@ -36,7 +39,7 @@ const Navbar = () => {
             </div>
 
             <div className='font-Apple_Bold mx-1 px-2 pt-1 w-max-8 relative'>
-                Notepad
+                {currApp}
                 <div className='absolute inset-0 top-0 left-0 hover:bg-slate-200 hover:opacity-50 rounded-md' /> 
             </div>
         </div>
