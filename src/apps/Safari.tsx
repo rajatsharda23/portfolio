@@ -20,7 +20,7 @@ const Safari = () => {
     const safariUrl = useSelector((state: RootState) => state.app.safariUrl)
 
     return (
-        <div className="h-full w-full inline-block">
+        <div className="h-full w-full inline-block overflow-auto">
             
             {url==='homePage'?
             <div className='bg-notepadBG h-full w-full'>
@@ -107,7 +107,7 @@ const Safari = () => {
                                 </div>
                             </div>
 
-                            <div className='flex flex-row'>
+                            <div className='flex flex-row space-x-3'>
                                 <div className='font-Apple_Regular text-lg flex items-center justify-center flex-col' onClick={() => window.open("https://creativerse23.netlify.app/login", "_blank")}>
                                     <div className='flex items-center justify-center pl-2 rounded-lg h-32 w-44'>
                                         <img src={cVerse}  className='rounded-lg'/>

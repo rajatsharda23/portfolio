@@ -115,7 +115,7 @@ const MasterApp = () => {
               maxConstraints={[Infinity, Infinity]}
               resizeHandles={['se', 's', 'e']}
               onResize={handleResize}
-              className='bg-green-200 rounded-b-xl'
+              className='bg-notepadBG rounded-b-xl'
               lockAspectRatio={false}
             >
               <div className='flex items-center justify-center h-full w-full'>
