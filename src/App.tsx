@@ -9,6 +9,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { setLock } from './redux/slices/homePage/homeSlice'
 import ShutSleep from './components/ShutSleep'
 import MasterApp from './apps/MasterApp'
+import { Root } from 'react-dom/client'
+import { stat } from 'fs'
 
 function App() {
   
@@ -16,6 +18,7 @@ function App() {
   const isRestart = useSelector((state: RootState) => state.home.isRestart)
   const isSleep = useSelector((state: RootState) => state.home.isSleep)
   const isShutDown = useSelector((state: RootState) => state.home.isShutDown)
+  const currApp = useSelector((state : RootState) => state.app.currApp)
   
   const dispatch = useDispatch()
 
@@ -34,7 +37,8 @@ function App() {
       </div>
 
       <div className='flex justify-center items-center h-screen'> 
-        <MasterApp />
+        {currApp==="Finder"? <div></div> 
+        :<MasterApp />}
         {/* <button onClick={()=>dispatch(setLock(true))}>Logout</button> */}
       </div>
       

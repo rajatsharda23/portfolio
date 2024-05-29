@@ -5,7 +5,7 @@ export const appSlice = createSlice({
   name: 'app',
   initialState: {
     safariUrl: "homePage",
-    currApp: "Safari",
+    currApp: "Notes",
     history: ["homePage"],
     historyIndex: 0,
   },

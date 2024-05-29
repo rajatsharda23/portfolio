@@ -16,7 +16,8 @@ module.exports = {
       colors: {
         notepadBG: '#1A1D1D',
         notepadTextBG: '#1F1F1E',
-        notepadSelected: '#AB8A1F'
+        notepadSelected: '#AB8A1F',
+        menuBar: '#2B2B30',
       }
     },
   },

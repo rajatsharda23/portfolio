@@ -6,7 +6,7 @@ import { ListFormat } from 'typescript';
 
 const Notepad = () => {
 
-  const [selectedId, setSelectedId] = useState<number>(2);
+  const [selectedId, setSelectedId] = useState<number>(1);
  
   return (
     <div className='h-full w-full rounded-b-lg shadow-lg shadow-black inline-block'>

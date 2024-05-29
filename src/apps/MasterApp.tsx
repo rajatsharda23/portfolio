@@ -11,6 +11,7 @@ import fwd from '../assets/icons/safariForward.png'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../redux/store'
 import { setSafariUrl, goBack, goForward, setCurrApp } from '../redux/slices/homePage/appSlice'
+import Notepad from './Notepad'
 
 const MasterApp = () => {
   const dispatch = useDispatch()
@@ -37,7 +38,12 @@ const MasterApp = () => {
 
   const handleKeyDown = (event: any) => {
     if (event.key === 'Enter') {
-      dispatch(setSafariUrl(url))
+      if(url.includes("www")){
+          dispatch(setSafariUrl(url))
+        } else{
+            const newUrl = "https://www.bing.com/search?q=" + url
+            dispatch(setSafariUrl(newUrl))
+        }
     }
   }
 
@@ -53,6 +59,11 @@ const MasterApp = () => {
     dispatch(goForward())
   }
 
+  const handleCloseButton = () => {
+    dispatch(setCurrApp("Finder"))
+    console.log(currApp)
+  }
+
   return (
     <div className='text-white w-screen h-screen'>
       <div className='relative h-screen w-screen mt-8'>
@@ -62,8 +73,8 @@ const MasterApp = () => {
           defaultPosition={setPos}
         >
           <div className='absolute top-0 left-0 shadow-md border border-gray-600 rounded-xl'>
-            <div className={`bg-gray-600 ${currApp === "Safari" ? 'h-14' : 'h-8'} drag-handle rounded-t-xl rounded-b-none flex items-center p-1 pl-3`}>
-              <img src={close} className='h-4 mr-1' />
+            <div className={`bg-menuBar ${currApp === "Safari" ? 'h-14' : 'h-8'} drag-handle rounded-t-xl rounded-b-none flex items-center p-1 pl-3`}>
+              <img src={close} className='h-4 mr-1' onClick={handleCloseButton}/>
               <img src={minimize} className='h-4 mr-1' />
               <img src={fullScrn} className='h-4' />
 
@@ -108,7 +119,13 @@ const MasterApp = () => {
               lockAspectRatio={false}
             >
               <div className='flex items-center justify-center h-full w-full'>
-                <Safari />
+              {currApp === 'Safari' ? (
+              <Safari />
+            ) : currApp === 'Notes' ? (
+              <Notepad />
+            ) : (
+              <div></div>
+            )}
               </div>
             </ResizableBox>
           </div>
