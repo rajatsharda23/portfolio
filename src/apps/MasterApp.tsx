@@ -1,68 +1,92 @@
-import React, { useState, useEffect } from 'react'
-import { ResizableBox } from 'react-resizable'
-import Draggable from 'react-draggable'
-import '../components/Resizable.css'
-import close from '../assets/icons/mac_close/icons8-macos-close-30.png'
-import minimize from '../assets/icons/mac_minimize/icons8-macos-minimize-30.png'
-import fullScrn from '../assets/icons/mac_FullScrn/icons8-macos-full-screen-30.png'
-import Safari from './Safari'
-import back from '../assets/icons/safariBack.png'
-import fwd from '../assets/icons/safariForward.png'
-import { useDispatch, useSelector } from 'react-redux'
-import { RootState } from '../redux/store'
-import { setSafariUrl, goBack, goForward, setCurrApp } from '../redux/slices/homePage/appSlice'
-import Notepad from './Notepad'
+import React, { useState, useEffect } from 'react';
+import { ResizableBox } from 'react-resizable';
+import Draggable from 'react-draggable';
+import '../components/Resizable.css';
+import close from '../assets/icons/mac_close/icons8-macos-close-30.png';
+import minimize from '../assets/icons/mac_minimize/icons8-macos-minimize-30.png';
+import fullScrn from '../assets/icons/mac_FullScrn/icons8-macos-full-screen-30.png';
+import Safari from './Safari';
+import back from '../assets/icons/safariBack.png';
+import fwd from '../assets/icons/safariForward.png';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../redux/store';
+import { setSafariUrl, goBack, goForward, setCurrApp } from '../redux/slices/homePage/appSlice';
+import Notepad from './Notepad';
 
 const MasterApp = () => {
-  const dispatch = useDispatch()
-  const safariUrl = useSelector((state: RootState) => state.app.safariUrl)
-  const currApp = useSelector((state: RootState) => state.app.currApp)
+  const dispatch = useDispatch();
+  const safariUrl = useSelector((state: RootState) => state.app.safariUrl);
+  const currApp = useSelector((state: RootState) => state.app.currApp);
 
-  const [width, setWidth] = useState<number>(900)
-  const [height, setHeight] = useState<number>(700)
-  const [url, setUrl] = useState<string>("")
+  const [width, setWidth] = useState<number>(900);
+  const [height, setHeight] = useState<number>(700);
+  const [url, setUrl] = useState<string>("");
+  const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
+  const [windowHeight, setWindowHeight] = useState<number>(window.innerHeight);
 
   useEffect(() => {
-    console.log('Current URL:', url)
-  }, [url])
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+      setWindowHeight(window.innerHeight);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    const isMobile = windowWidth <= 640;
+    if (isMobile) {
+      setWidth(windowWidth - 20);
+      setHeight(windowHeight - 80);
+    } else {
+      setWidth(900);
+      setHeight(700);
+    }
+  }, [windowWidth, windowHeight]);
+
+  useEffect(() => {
+    console.log('Current URL:', url);
+  }, [url]);
 
   const handleResize = (event: any, { size }: { size: { width: number, height: number } }) => {
-    setWidth(size.width)
-    setHeight(size.height)
-  }
+    setWidth(size.width);
+    setHeight(size.height);
+  };
 
   const setPos = {
-    x: 400,
-    y: 40,
-  }
+    x: Math.max(0, (windowWidth - width) / 2),
+    y: Math.max(0, (windowHeight - height) / 2),
+  };
 
   const handleKeyDown = (event: any) => {
     if (event.key === 'Enter') {
-      if(url.includes("www")){
-          dispatch(setSafariUrl(url))
-        } else{
-            const newUrl = "https://www.bing.com/search?q=" + url
-            dispatch(setSafariUrl(newUrl))
-        }
+      if (url.includes("www")) {
+        dispatch(setSafariUrl(url));
+      } else {
+        const newUrl = "https://www.bing.com/search?q=" + url;
+        dispatch(setSafariUrl(newUrl));
+      }
     }
-  }
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setUrl(e.target.value)
-  }
+    setUrl(e.target.value);
+  };
 
   const handleBackClick = () => {
-    dispatch(goBack())
-  }
+    dispatch(goBack());
+  };
 
   const handleForwardClick = () => {
-    dispatch(goForward())
-  }
+    dispatch(goForward());
+  };
 
   const handleCloseButton = () => {
-    dispatch(setCurrApp("Finder"))
-    console.log(currApp)
-  }
+    dispatch(setCurrApp("Finder"));
+    console.log(currApp);
+  };
 
   return (
     <div className='text-white w-screen h-screen'>
@@ -112,27 +136,27 @@ const MasterApp = () => {
               width={width}
               height={height}
               minConstraints={[100, 100]}
-              maxConstraints={[Infinity, Infinity]}
+              maxConstraints={[windowWidth - 20, windowHeight - 80]}
               resizeHandles={['se', 's', 'e']}
               onResize={handleResize}
               className='bg-notepadBG rounded-b-xl'
               lockAspectRatio={false}
             >
               <div className='flex items-center justify-center h-full w-full'>
-              {currApp === 'Safari' ? (
-              <Safari />
-            ) : currApp === 'Notes' ? (
-              <Notepad />
-            ) : (
-              <div></div>
-            )}
+                {currApp === 'Safari' ? (
+                  <Safari />
+                ) : currApp === 'Notes' ? (
+                  <Notepad />
+                ) : (
+                  <div></div>
+                )}
               </div>
             </ResizableBox>
           </div>
         </Draggable>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default MasterApp
+export default MasterApp;

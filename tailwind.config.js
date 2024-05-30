@@ -18,7 +18,10 @@ module.exports = {
         notepadTextBG: '#1F1F1E',
         notepadSelected: '#AB8A1F',
         menuBar: '#2B2B30',
-      }
+      },
+      screens: {
+        'custom': '491px',
+      },
     },
   },
   plugins: [],

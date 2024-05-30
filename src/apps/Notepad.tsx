@@ -9,12 +9,12 @@ const Notepad = () => {
   const [selectedId, setSelectedId] = useState<number>(1);
  
   return (
-    <div className='h-full w-full rounded-b-lg shadow-lg shadow-black inline-block'>
+    <div className='h-full w-full rounded-b-lg shadow-lg shadow-black inline-block '>
       <div className='flex w-full h-full'>
 
         <div className='w-64 h-full border-gray-600 bg-notepadBG border-r-2 flex flex-col overflow-auto'>
 
-          <div className='flex flex-col h-24 px-1 py-1 items-start justify-center border-b-2 border-gray-500' onClick={() => setSelectedId(1)}>
+          <div className='flex flex-col h-24 px-1 py-1 items-start justify-center border-b-2 border-gray-500 overflow-auto' onClick={() => setSelectedId(1)}>
             <div className={`${selectedId === 1 ? 'bg-notepadSelected' : 'bg-inherit'} p-2 px-6 rounded-xl`}>
               <div className='font-Apple_Bold text-xl'>
                 About Me
@@ -25,7 +25,7 @@ const Notepad = () => {
             </div>
           </div>
 
-          <div className='flex flex-col h-24 px-1 py-1 items-start justify-center border-b-2 border-gray-500' onClick={() => setSelectedId(2)}>
+          <div className='flex flex-col h-24 px-1 py-1 items-start justify-center border-b-2 border-gray-500 overflow-auto' onClick={() => setSelectedId(2)}>
             <div className={`${selectedId === 2 ? 'bg-notepadSelected' : 'bg-inherit'} p-2 px-6 rounded-xl`}>
               <div className='font-Apple_Bold text-xl'>
                 About this Site
@@ -36,7 +36,7 @@ const Notepad = () => {
             </div>
           </div>
 
-          <div className='flex flex-col h-24 px-1 py-1 items-start justify-center border-b-2 border-gray-500' onClick={() => setSelectedId(3)}>
+          <div className='flex flex-col h-32 px-1 py-1 items-start justify-center border-b-2 border-gray-500 overflow-auto py-4' onClick={() => setSelectedId(3)}>
             <div className={`${selectedId === 3 ? 'bg-notepadSelected' : 'bg-inherit'} p-2 px-6 rounded-xl`}>
               <div className='font-Apple_Bold text-xl'>
                 Contact Me
@@ -88,9 +88,9 @@ const Notepad = () => {
              : <div></div>}
 
             {selectedId===2? 
-            <div>
+            <div className='overflow-auto'>
 
-              <div className='text-3xl font-Apple_Bold'>
+              <div className='text-3xl font-Apple_Bold '>
                 About this site!
               </div>
 
