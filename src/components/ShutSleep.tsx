@@ -44,7 +44,7 @@ const ShutSleep = () => {
     <div className='flex h-screen w-screen fixed bg-black font-Apple_Regular text-white'>
         <div className='flex flex-col items-center justify-center h-full w-full space-y-8'>
             <div>
-                <img src={appleLogo} />
+                <img src={appleLogo} alt="Apple Logo icon"/>
             </div>
             <div className='py-4'>
                 {isSleep? <div onClick={()=> dispatch(setSleep(false))}> Click to wake up</div> : 

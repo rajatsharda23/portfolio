@@ -39,7 +39,6 @@ function App() {
       <div className='flex justify-center items-center h-screen'> 
         {currApp==="Finder"? <div></div> 
         :<MasterApp />}
-        {/* <button onClick={()=>dispatch(setLock(true))}>Logout</button> */}
       </div>
       
       <div></div>

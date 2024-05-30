@@ -74,9 +74,9 @@ const MasterApp = () => {
         >
           <div className='absolute top-0 left-0 shadow-md border border-gray-600 rounded-xl'>
             <div className={`bg-menuBar ${currApp === "Safari" ? 'h-14' : 'h-8'} drag-handle rounded-t-xl rounded-b-none flex items-center p-1 pl-3`}>
-              <img src={close} className='h-4 mr-1' onClick={handleCloseButton}/>
-              <img src={minimize} className='h-4 mr-1' />
-              <img src={fullScrn} className='h-4' />
+              <img src={close} className='h-4 mr-1' onClick={handleCloseButton} alt="Close button"/>
+              <img src={minimize} className='h-4 mr-1' alt="Minimize button"/>
+              <img src={fullScrn} className='h-4' alt="Full Screen button"/>
 
               {currApp === "Safari" ?
                 <div className='flex w-full relative'>
@@ -84,11 +84,11 @@ const MasterApp = () => {
                     <div className='border border-l-1 border-gray-500 h-full shadow-xl shadow-gray-600 blur-0'></div>
 
                     <div className='ml-2 hover:bg-gray-100 p-1 hover:opacity-50 rounded-md'>
-                      <img src={back} className='h-5 w-5' onClick={handleBackClick} />
+                      <img src={back} className='h-5 w-5' onClick={handleBackClick} alt="back-button"/>
                     </div>
 
                     <div className='hover:bg-gray-100 p-1 hover:opacity-50 rounded-md'>
-                      <img src={fwd} className='h-5 w-5' onClick={handleForwardClick} />
+                      <img src={fwd} className='h-5 w-5' onClick={handleForwardClick} alt="forward-button"/>
                     </div>
                   </div>
 

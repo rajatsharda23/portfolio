@@ -34,7 +34,7 @@ const Navbar = () => {
     <div className='fixed top-0 left-0 right-0 h-8 flex items-center justify-between px-4 z-10 backdrop-filter backdrop-brightness-105 backdrop-blur-3xl text-white'> 
         <div className='flex flex-row items-center'>
             <div className='flex items-center h-6 rounded-md px-2 p-1 relative '>
-                <img src={apple_logo} className='h-4 relative z-50 peer' /> 
+                <img src={apple_logo} className='h-4 relative z-50 peer' alt="Apple Logo icon"/> 
                 <div className='absolute inset-0 top-0 left-0 hover:bg-slate-200 hover:opacity-50 rounded-md peer-hover:bg-slate-200 peer-hover:opacity-50' /> 
             </div>
 
@@ -50,23 +50,23 @@ const Navbar = () => {
                     99%
                 </div>
                 <div className='flex items-center justify-center'>
-                    <img src={battery} className='h-6'/>
+                    <img src={battery} className='h-6' alt="Battery icon"/>
                 </div>
 
                 <div className='absolute inset-0 top-0 left-0 hover:bg-slate-100 hover:opacity-50 rounded-md' /> 
             </div>
 
             <div className='flex items-center justify-center h-6 rounded-md px-2 p-1 relative '>
-                <img src={wifi} className='h-5 relative z-50 peer/wifi' /> 
+                <img src={wifi} className='h-5 relative z-50 peer/wifi' alt="Wifi icon"/> 
                 <div className='absolute inset-0 top-0 left-0 hover:bg-slate-100 hover:opacity-50 rounded-md peer-hover/wifi:bg-slate-200 peer-hover/wifi:opacity-50' /> 
             </div>
 
             <div className='flex items-center justify-center h-6 rounded-md px-2 p-1 relative '>
-                <img src={search} className='h-5 relative z-50 peer/wifi' /> 
+                <img src={search} className='h-5 relative z-50 peer/wifi' alt="Search icon"/> 
                 <div className='absolute inset-0 top-0 left-0 hover:bg-slate-100 hover:opacity-50 rounded-md peer-hover/wifi:bg-slate-200 peer-hover/wifi:opacity-50' /> 
             </div>
 
-            <div className='flex items-center justify-center h-6 rounded-md px-2 p-1 relative '>
+            <div className='flex items-center justify-center h-6 rounded-md px-2 p-1 relative'>
             <svg viewBox="0 0 29 29" width="16" height="16" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M7.5,13h14a5.5,5.5,0,0,0,0-11H7.5a5.5,5.5,0,0,0,0,11Zm0-9h14a3.5,3.5,0,0,1,0,7H7.5a3.5,3.5,0,0,1,0-7Zm0,6A2.5,2.5,0,1,0,5,7.5,2.5,2.5,0,0,0,7.5,10Zm14,6H7.5a5.5,5.5,0,0,0,0,11h14a5.5,5.5,0,0,0,0-11Zm1.43439,8a2.5,2.5,0,1,1,2.5-2.5A2.5,2.5,0,0,1,22.93439,24Z"></path></svg>
                 <div className='absolute inset-0 top-0 left-0 hover:bg-slate-100 hover:opacity-50 rounded-md peer-hover/wifi:bg-slate-200 peer-hover/wifi:opacity-50' /> 
             </div>

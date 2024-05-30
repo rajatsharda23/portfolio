@@ -27,7 +27,7 @@ const Login = () => {
         <div className='flex flex-col items-center justify-center h-4/5 space-y-4'>
             
             <div className='h-32 w-32 rounded inline-block'>
-                <img src={PPic} className='rounded-full border border-white '/>
+                <img src={PPic} className='rounded-full border border-white' alt="Profile Picture"/>
             </div>
 
             <div className='text-2xl font-Apple_Bold text-white'>
@@ -35,7 +35,7 @@ const Login = () => {
             </div>
 
             <div className='relative flex items-center'>
-                <img src={quesMark} className='absolute z-50 right-2'
+                <img src={quesMark} className='absolute z-50 right-2' alt="QuesMark icon"
                 style={{ width: '16px', height: '16px', filter: 'invert(100%)' }}/>
                 <input className='text-white bg-gray-400 pt-1 p-1 pl-2 pr-8 rounded-lg opacity-95 tracking-wide flex items-center text-justify text-sm
                  placeholder:text-white placeholder:flex placeholder:text-sm placeholder:pl-1 placeholder:font-Apple_Regular' 
@@ -52,7 +52,7 @@ const Login = () => {
             
             <div className='flex flex-col items-center justify-center space-y-2 mx-8' onClick={()=>dispatch(setSleep(true))}>
                 <div className='inline-block bg-slate-800 rounded-full'>
-                    <img src={sleep} className='h-12 w-12' style={{ filter: 'invert(100%)' }} />
+                    <img src={sleep} className='h-12 w-12' style={{ filter: 'invert(100%)' }} alt="Sleep icon"/>
                 </div>
                <div>
                     Sleep
@@ -61,7 +61,7 @@ const Login = () => {
 
             <div className='flex flex-col items-center justify-center space-y-2 px-8' onClick={()=>dispatch(setRestart(true))}>
                 <div className='inline-block bg-slate-800 rounded-full'>
-                    <img src={restart} className='h-12 w-12' style={{ filter: 'invert(100%)' }} />
+                    <img src={restart} className='h-12 w-12' style={{ filter: 'invert(100%)' }} alt="Restart icon"/>
                 </div>
                <div>
                     Restart
@@ -70,7 +70,7 @@ const Login = () => {
 
             <div className='flex flex-col items-center justify-center space-y-2 px-4' onClick={()=>dispatch(setShutDown(true))}>
                 <div className='inline-block bg-slate-800 rounded-full'>
-                    <img src={shutDown} className='h-12 w-12' style={{ filter: 'invert(100%)' }} />
+                    <img src={shutDown} className='h-12 w-12' style={{ filter: 'invert(100%)' }} alt="Shut Down icon"/>
                 </div>
                <div>
                     Shut Down
