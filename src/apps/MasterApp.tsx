@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
 import { setSafariUrl, goBack, goForward, setCurrApp } from '../redux/slices/homePage/appSlice';
 import Notepad from './Notepad';
+import VSCode from './VSCode';
 
 const MasterApp = () => {
   const dispatch = useDispatch();
@@ -147,9 +148,9 @@ const MasterApp = () => {
                   <Safari />
                 ) : currApp === 'Notes' ? (
                   <Notepad />
-                ) : (
-                  <div></div>
-                )}
+                ) : currApp === 'VSCode' ?(
+                  <VSCode />
+                ) : <div></div>}
               </div>
             </ResizableBox>
           </div>

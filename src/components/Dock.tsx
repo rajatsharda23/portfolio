@@ -17,7 +17,7 @@ function Dock() {
       onMouseLeave={() => mouseX.set(Infinity)}
       className="mx-auto flex h-20 items-end gap-4 rounded-xl backdrop-filter backdrop-brightness-105 backdrop-blur-3xl px-4 pb-5 border-opacity-20 border border-slate-100"
     >
-      {new Array(6).fill(0).map((_, i) => {
+      {new Array(3).fill(0).map((_, i) => {
         let imgSrc, imgName
         if (i === 0) {
           imgSrc = notesImg

@@ -1,12 +1,11 @@
-import React, { useState } from 'react'
-import { Resizable, ResizableBox } from 'react-resizable';
-import Draggable, {DraggableCore} from 'react-draggable'
+import React, { useEffect, useState } from 'react'
+import { Resizable, ResizableBox } from 'react-resizable'
+import Draggable, { DraggableCore } from 'react-draggable'
 import '../components/Resizable.css'
-import { ListFormat } from 'typescript';
 
 const Notepad = () => {
 
-  const [selectedId, setSelectedId] = useState<number>(1);
+  const [selectedId, setSelectedId] = useState<number>(1)
  
   return (
     <div className='h-full w-full rounded-b-lg shadow-lg shadow-black inline-block '>
@@ -62,12 +61,11 @@ const Notepad = () => {
               <div className='font-Apple_Regular text-lg pt-8'>
                 Hi there! I'm a pre-final student at <a href='https://dtu.ac.in/' target='_blank' className=' underline text-notepadSelected'>Delhi Technological University</a> pursuing 
                 Electronics and Communications Engineering, with a minor in Computer Science. I have a keen interest in Generative AI and 
-                am expericed in building and designing exciting websites!
+                am experienced in building and designing exciting websites!
               </div>
 
               <div className='font-Apple_Regular text-lg pt-8'>
                 I am an avid rock fan, who plays the violin and guitar. I also like to play football and badminton.
-
               </div>
 
               <br />
@@ -77,11 +75,10 @@ const Notepad = () => {
                 Résumé
                 <div className='font-Apple_Regular text-lg pt-4'>
                   <ul className="list-disc list-inside">
-                    <li>Normal Version: <a href='https://docs.google.com/document/d/1TURpRTytl0NrM---_L37zU43SrBD8QJh/edit?usp=sharing&ouid=112629307061188286717&rtpof=true&sd=true' target='_blank' className=' underline text-notepadSelected'>Google Docs</a></li>
-                    <li>Interesting Version: <a href='mailto:rajatsharda23@gmail.com' target='_blank' className=' underline text-notepadSelected'>Portfolio Webiste</a></li>
+                    <li>Normal Version: <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target='_blank' className='underline text-notepadSelected'>Google Docs</a></li>
+                    <li>Interesting Version: <a href='https://rajat-portfolio23.netlify.app/' target='_blank' className=' underline text-notepadSelected'>Portfolio Webiste</a></li>
                   </ul>
                 </div>  
-
               </div>
 
             </div>
@@ -98,7 +95,7 @@ const Notepad = () => {
                 This is inspired by macOS and  <a href='https://github.com/Renovamen' target='_blank' className=' underline text-notepadSelected'>@Renovamen</a>'s portfolio website!
                 Developed using React, TypeScript, Redux and Tailwind CSS. <br />
                 <br />
-                <p>The source code is hosted <a href='https://github.com/rajatsharda23' target='_blank' className=' underline text-notepadSelected'>here</a></p>
+                <p>The source code is hosted <a href='https://github.com/rajatsharda23/portfolio' target='_blank' className=' underline text-notepadSelected'>here</a></p>
               </div>
             </div>
              : <div></div>}
