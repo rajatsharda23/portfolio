@@ -4,7 +4,7 @@ const VSCode = () => {
   return (
     <iframe
   className="w-full h-full"
-  src="https://stackblitz.com/github/rajatsharda23/portfolio?embed=1&file=index.html"
+  src="https://stackblitz.com/github/rajatsharda23/portfolio"
   title="VSCode"
   sandbox="allow-scripts allow-same-origin"
 />
