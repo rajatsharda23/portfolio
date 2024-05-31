@@ -9,6 +9,7 @@ export const homeSlice = createSlice({
     isSleep : false,
     isRestart : false,
     isShutDown : true,
+    appleClicked : false
   },
   reducers: {
     setLock : (state, action) => {
@@ -23,9 +24,12 @@ export const homeSlice = createSlice({
     setShutDown : (state, action) => {
         state.isShutDown= action.payload
     },
+    setAppleClicked : (state, action) => {
+      state.appleClicked= action.payload
+  }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { setLock, setSleep, setRestart, setShutDown} = homeSlice.actions
+export const { setLock, setSleep, setRestart, setShutDown,setAppleClicked } = homeSlice.actions
 export default homeSlice.reducer

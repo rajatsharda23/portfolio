@@ -4,8 +4,9 @@ import battery from '../assets/icons/battery.png'
 import wifi from '../assets/icons/wifi.png'
 import search from '../assets/icons/search.png'
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
+import { setAppleClicked } from '../redux/slices/homePage/homeSlice';
 
 function getMacOsFormattedDate(): string {
     const d = new Date();
@@ -22,19 +23,21 @@ function getMacOsFormattedDate(): string {
 
 
     return formattedDate.replace(/,/g, '');
-  }
+}
   
 
 const Navbar = () => {
 
     const formattedDate = getMacOsFormattedDate();
     const currApp = useSelector((state: RootState) => state.app.currApp)
+    const appleClicked = useSelector((state : RootState) => state.home.appleClicked)
+    const dispatch = useDispatch()
 
   return (
     <div className='fixed top-0 left-0 right-0 h-8 flex items-center justify-between px-4 z-10 backdrop-filter backdrop-brightness-105 backdrop-blur-3xl text-white'> 
         <div className='flex flex-row items-center'>
-            <div className='flex items-center h-6 w-8 rounded-md px-2 p-1 relative '>
-                <img src={apple_logo} className='h-4 relative z-50 peer' alt="Apple Logo icon"/> 
+            <div className='flex items-center h-6 w-8 rounded-md px-2 p-1 relative' onClick={()=>dispatch(setAppleClicked(true))}>
+                <img src={apple_logo} className='h-4 relative z-50 peer' alt="Apple Logo icon" /> 
                 <div className='absolute inset-0 top-0 left-0 hover:bg-slate-200 hover:opacity-50 rounded-md peer-hover:bg-slate-200 peer-hover:opacity-50' /> 
             </div>
 
