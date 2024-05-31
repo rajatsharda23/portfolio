@@ -75,7 +75,7 @@ const Notepad = () => {
                 Résumé
                 <div className='font-Apple_Regular text-lg pt-4'>
                   <ul className="list-disc list-inside">
-                    <li>Normal Version: <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target='_blank' className='underline text-notepadSelected'>Google Docs</a></li>
+                    <li>Normal Version: <a href="https://docs.google.com/document/d/1TURpRTytl0NrM---_L37zU43SrBD8QJh/edit?usp=sharing&ouid=112629307061188286717&rtpof=true&sd=true" target='_blank' className='underline text-notepadSelected'>Google Docs</a></li>
                     <li>Interesting Version: <a href='https://rajat-portfolio23.netlify.app/' target='_blank' className=' underline text-notepadSelected'>Portfolio Webiste</a></li>
                   </ul>
                 </div>  

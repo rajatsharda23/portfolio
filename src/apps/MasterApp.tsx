@@ -1,59 +1,59 @@
-import React, { useState, useEffect } from 'react';
-import { ResizableBox } from 'react-resizable';
-import Draggable from 'react-draggable';
-import '../components/Resizable.css';
-import close from '../assets/icons/mac_close/icons8-macos-close-30.png';
-import minimize from '../assets/icons/mac_minimize/icons8-macos-minimize-30.png';
-import fullScrn from '../assets/icons/mac_FullScrn/icons8-macos-full-screen-30.png';
-import Safari from './Safari';
-import back from '../assets/icons/safariBack.png';
-import fwd from '../assets/icons/safariForward.png';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../redux/store';
-import { setSafariUrl, goBack, goForward, setCurrApp } from '../redux/slices/homePage/appSlice';
-import Notepad from './Notepad';
-import VSCode from './VSCode';
+import React, { useState, useEffect } from 'react'
+import { ResizableBox } from 'react-resizable'
+import Draggable from 'react-draggable'
+import '../components/Resizable.css'
+import close from '../assets/icons/mac_close/icons8-macos-close-30.png'
+import minimize from '../assets/icons/mac_minimize/icons8-macos-minimize-30.png'
+import fullScrn from '../assets/icons/mac_FullScrn/icons8-macos-full-screen-30.png'
+import Safari from './Safari'
+import back from '../assets/icons/safariBack.png'
+import fwd from '../assets/icons/safariForward.png'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootState } from '../redux/store'
+import { setSafariUrl, goBack, goForward, setCurrApp } from '../redux/slices/homePage/appSlice'
+import Notepad from './Notepad'
+import VSCode from './VSCode'
 
 const MasterApp = () => {
-  const dispatch = useDispatch();
-  const safariUrl = useSelector((state: RootState) => state.app.safariUrl);
-  const currApp = useSelector((state: RootState) => state.app.currApp);
+  const dispatch = useDispatch()
+  const safariUrl = useSelector((state: RootState) => state.app.safariUrl)
+  const currApp = useSelector((state: RootState) => state.app.currApp)
 
-  const [width, setWidth] = useState<number>(900);
-  const [height, setHeight] = useState<number>(700);
-  const [url, setUrl] = useState<string>("");
-  const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
-  const [windowHeight, setWindowHeight] = useState<number>(window.innerHeight);
+  const [width, setWidth] = useState<number>(900)
+  const [height, setHeight] = useState<number>(700)
+  const [url, setUrl] = useState<string>("")
+  const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth)
+  const [windowHeight, setWindowHeight] = useState<number>(window.innerHeight)
 
   useEffect(() => {
     const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-      setWindowHeight(window.innerHeight);
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  useEffect(() => {
-    const isMobile = windowWidth <= 640;
-    if (isMobile) {
-      setWidth(windowWidth - 20);
-      setHeight(windowHeight - 80);
-    } else {
-      setWidth(900);
-      setHeight(700);
+      setWindowWidth(window.innerWidth)
+      setWindowHeight(window.innerHeight)
     }
-  }, [windowWidth, windowHeight]);
+
+    window.addEventListener('resize', handleResize)
+
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   useEffect(() => {
-    console.log('Current URL:', url);
-  }, [url]);
+    const isMobile = windowWidth <= 640
+    if (isMobile) {
+      setWidth(windowWidth - 20)
+      setHeight(windowHeight - 80)
+    } else {
+      setWidth(900)
+      setHeight(700)
+    }
+  }, [windowWidth, windowHeight])
+
+  useEffect(() => {
+    console.log('Current URL:', url)
+  }, [url])
 
   const handleResize = (event: any, { size }: { size: { width: number, height: number } }) => {
-    setWidth(size.width);
-    setHeight(size.height);
+    setWidth(size.width)
+    setHeight(size.height)
   };
 
   const setPos = {
@@ -64,28 +64,28 @@ const MasterApp = () => {
   const handleKeyDown = (event: any) => {
     if (event.key === 'Enter') {
       if (url.includes("www")) {
-        dispatch(setSafariUrl(url));
+        dispatch(setSafariUrl(url))
       } else {
-        const newUrl = "https://www.bing.com/search?q=" + url;
-        dispatch(setSafariUrl(newUrl));
+        const newUrl = "https://www.bing.com/search?q=" + url
+        dispatch(setSafariUrl(newUrl))
       }
     }
-  };
+  }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setUrl(e.target.value);
-  };
+    setUrl(e.target.value)
+  }
 
   const handleBackClick = () => {
-    dispatch(goBack());
-  };
+    dispatch(goBack())
+  }
 
   const handleForwardClick = () => {
-    dispatch(goForward());
+    dispatch(goForward())
   };
 
   const handleCloseButton = () => {
-    dispatch(setCurrApp("Finder"));
+    dispatch(setCurrApp("Finder"))
     console.log(currApp);
   };
 
@@ -157,7 +157,7 @@ const MasterApp = () => {
         </Draggable>
       </div>
     </div>
-  );
-};
+  )
+}
 
 export default MasterApp;
