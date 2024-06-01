@@ -2,11 +2,29 @@ import { useDispatch, useSelector } from 'react-redux'
 import back from '../assets/icons/safariBack.png'
 import { RootState } from '../redux/store'
 import { setCurrApp } from '../redux/slices/homePage/appSlice'
-import siri from '../assets/icons/siri.png'
+import SiriMessage from '../components/SiriMessage'
+import UserMessage from '../components/UserMessage'
+import { useState } from 'react'
 
 const Siri = () => {
   const currApp = useSelector((state: RootState) => state.app.currApp)
   const dispatch = useDispatch()
+
+  const [userInput, setUserInput] = useState<string>("")
+  const [input, setInput] = useState<string>("")
+
+  const handleInput = (e:React.ChangeEvent<HTMLInputElement>) => {
+    setInput(e.target.value)
+  }
+
+  const handleKeyDown = (e:any) => {
+    if(e.key==='Enter'){
+        setUserInput(input)
+        setInput("")
+    }
+  }
+
+
 
   return (
     <div className="fixed h-screen w-screen bg-light-bg bg-cover text-white">
@@ -22,27 +40,28 @@ const Siri = () => {
                 </div>
             </div>
         
-        <div className='fixed p-20 h-5/6 w-full'>
-            <div className='p-20 border h-full w-full border-white rounded-3xl shadow-sm shadow-white'>
-                <div className='h-full w-full backdrop-blur-3xl'>
-                    <div className='font-Apple_Regular text-xl bg-inherit'>
-                
-                        <div className='flex items-center space-x-2'>
-                            
-                            <div className='h-10 w-10'>
-                                <img src={siri} alt="siriLogo" />
-                            </div>
-                            <div className='min-w-40 min-h-12 p-2 border border-gray-400 rounded-xl overflow-hidden bg-blue-900 bg-opacity-50 bg-blend-overlay'>
-                                Hey there! I am a PhD student at the Computer Science and Engineering department of Pennsylvania State University. Previously, I received my master's degree in Computer Science from Boston University and my bachelor’s degree in Software Engineering from Tongji University. I'm trying to find a balance between research and engineering.
-                            </div>
-                        </div>
+            <div className='fixed p-20 py-10 h-4/6 w-full'>
+                <div className='p-16 pt-16 border h-full w-full border-white rounded-3xl shadow-sm shadow-white overflow-auto'>
+                    <div className='font-Apple_Regular text-xl bg-inherit space-y-2'>
+                        <div className='flex flex-col space-y-2'>
+                        <SiriMessage />
 
+                        {userInput && <UserMessage userInput={userInput}/>}
+
+                        </div>
                     </div>
                 </div>
             </div>
+            
+            <div className='fixed bottom-10 left-0 right-0 px-20 w-full rounded-xl font-Apple_Regular'>
+                <input type='text' 
+                className='rounded-xl border border-white  shadow-xl bg-inherit w-full min-h-12 overflow-hidden px-3 text-lg' 
+                onChange={handleInput} 
+                onKeyDown={handleKeyDown}/>
+            </div>
+
         </div>
     </div>
-</div>
   )
 }
 

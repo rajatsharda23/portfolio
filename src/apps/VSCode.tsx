@@ -8,7 +8,7 @@ const VSCode = () => {
   title="VSCode"
   sandbox="allow-scripts allow-same-origin"
 />
-  );
-};
+  )
+}
 
-export default VSCode;
+export default VSCode
