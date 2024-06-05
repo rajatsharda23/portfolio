@@ -22,9 +22,6 @@ function App() {
 
     const dispatch = useDispatch();
 
-    
-    console.log("api key -> " + process.env.GROQ_API_KEY)
-
     return (
         <div className='fixed h-screen w-screen'>
             {isSleep || isRestart || isShutDown ? (

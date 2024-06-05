@@ -109,7 +109,7 @@ const Siri = () => {
                   <UserMessage key={index} userInput={msg.text} /> : 
                   <SiriMessage key={index} message={msg.text} />
                 ))}
-                {loading && <div className="text-white">Siri is typing...</div>}
+                {loading && <div className="text-white"></div>}
                 <div ref={messagesEndRef} />
               </div>
             </div>
