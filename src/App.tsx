@@ -10,6 +10,7 @@ import { setAppleClicked, setLock } from './redux/slices/homePage/homeSlice';
 import ShutSleep from './components/ShutSleep';
 import MasterApp from './apps/MasterApp';
 import MenuBar from './components/MenuBar';
+import Siri from './apps/Siri';
 
 function App() {
     const isLocked = useSelector((state: RootState) => state.home.isLocked);
@@ -21,6 +22,9 @@ function App() {
 
     const dispatch = useDispatch();
 
+    
+    console.log("api key -> " + process.env.GROQ_API_KEY)
+
     return (
         <div className='fixed h-screen w-screen'>
             {isSleep || isRestart || isShutDown ? (
@@ -28,7 +32,8 @@ function App() {
             ) : isLocked ? (
                 <Login />
             ) : (
-                <div className='fixed h-screen w-screen bg-light-bg bg-cover' >
+                currApp === 'Siri' ?  <Siri />
+                :<div className='fixed h-screen w-screen bg-light-bg bg-cover' >
                     <div>
                         <Navbar />
                     </div>
