@@ -36,6 +36,17 @@ prompts:
 
       Question: What category does the message fall into? Provide just the category name or "bad conduct" if none of the categories fit.
       Answer: 
+
+  - task: blocked_topics
+    content: |
+      Your task is to determine if the user message below shows intent to discuss any of the proprietary terms listed.
+      
+      Proprietary terms: {{ proprietary_terms }}
+
+      User message: "{{ user_input }}"
+
+      Question: Does the user message show intent to discuss any proprietary terms (Yes or No)?
+      Answer: 
   
   - task: self_check_output
     content: |

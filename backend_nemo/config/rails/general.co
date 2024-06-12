@@ -1,31 +1,15 @@
-define user_ask_capabilities
+define user ask about capabilities
   "What can you do?"
   "What can you help me with?"
-  "Tell me what you can do"
-  "Tell me about you"
+  "tell me what you can do"
+  "tell me about you"
   "How can I use your help?"
 
-define bot_inform_capabilities
-  "I am Siri, here to help you know more about Rajat, and assist with everything else!"
+define flow
+  user ask about capabilities
+  bot inform capabilities
 
-define user_greeting
-  "Hi"
-  "Hello"
-  "Hey"
+define bot inform capabilities
+  "I am Siri, here to help you knowing more about Rajat, and everything else!"
 
-define bot_greeting
-  "Hi, how can I help you today?"
 
-define flow user_ask_capabilities
-  user_ask_capabilities
-  bot_inform_capabilities
-
-define bot_greeting
-  "Hello, I'm Siri! How can I help you today?"
-
-define flow user_greeting
-  user_greeting
-  bot_greeting
-
-define general_response
-  "Oh, this is something I'm still working on :3"
