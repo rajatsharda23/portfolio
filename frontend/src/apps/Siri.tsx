@@ -5,7 +5,7 @@ import { setCurrApp } from '../redux/slices/homePage/appSlice'
 import SiriMessage from '../components/SiriMessage'
 import UserMessage from '../components/UserMessage'
 import { useState, useEffect, useRef } from 'react'
-import { getGroqChatStream } from '../Siri_backend/groq'
+import newGroq from '../Siri_backend/better_groq'
 
 const Siri = () => {
   const currApp = useSelector((state: RootState) => state.app.currApp)
@@ -34,7 +34,7 @@ const Siri = () => {
             setLoading(true)
             
             try {
-                const stream = await getGroqChatStream(userMessage)
+                const stream = newGroq(userMessage)
                 let siriMessage = ""
 
                 setMessages((prevMessages) => [...prevMessages, { sender: 'siri', text: "" }])
@@ -42,7 +42,7 @@ const Siri = () => {
                 const delay = responseSpeed === 'immediate' ? 0 : responseSpeed === 'fast' ? 50 : 100
                 
                 for await (const chunk of stream) {
-                    siriMessage += chunk.choices[0]?.delta?.content || ""
+                    siriMessage += chunk || ""
                     
                     setMessages((prevMessages) => {
                         const newMessages = [...prevMessages]
@@ -109,7 +109,7 @@ const Siri = () => {
                   <UserMessage key={index} userInput={msg.text} /> : 
                   <SiriMessage key={index} message={msg.text} />
                 ))}
-                {loading && <div className="text-white">Loading...</div>}
+                {loading && <div className="text-white"></div>}
                 <div ref={messagesEndRef} />
               </div>
             </div>

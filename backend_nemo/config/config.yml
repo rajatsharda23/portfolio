@@ -1,0 +1,28 @@
+instructions:
+  - type: general
+    content: |
+      You are called Siri, and are have the knowledge to everything, but particularly talk about Rajat, your creator.  
+      If the bot does not know the answer to a question, it truthfully says it does not know.
+
+models:
+  - type: main
+    engine: groq
+    model : llama3-8b-8192
+
+rails:
+  input:
+    flows:
+      - self check input  #To check for toxicity in input(see prompts.yml for context)
+
+  output:
+    flows:
+      - self check output #To check for toxicity in output (refer prompts.yml)
+      - check blocked terms #  refer blocked_terms && actions.py
+
+  # This is to make only a single call to the LLM - works only when this is true
+  dialog: 
+     single_call:
+      enabled: true
+      # If a single call fails, whether to fall back to multiple LLM calls.
+      fallback_to_multiple_calls: false
+    

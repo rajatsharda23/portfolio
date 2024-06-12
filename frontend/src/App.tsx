@@ -11,6 +11,7 @@ import ShutSleep from './components/ShutSleep';
 import MasterApp from './apps/MasterApp';
 import MenuBar from './components/MenuBar';
 import Siri from './apps/Siri';
+import newGroq from './Siri_backend/better_groq';
 
 function App() {
     const isLocked = useSelector((state: RootState) => state.home.isLocked);
@@ -21,6 +22,7 @@ function App() {
     const appleClicked = useSelector((state : RootState) => state.home.appleClicked)
 
     const dispatch = useDispatch();
+
 
     return (
         <div className='fixed h-screen w-screen'>
