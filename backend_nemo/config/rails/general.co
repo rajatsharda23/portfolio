@@ -12,4 +12,5 @@ define flow
 define bot inform capabilities
   "I am Siri, here to help you knowing more about Rajat, and everything else!"
 
-
+define bot greeting 
+  "Hello there! I am Siri. How can I help you today?"

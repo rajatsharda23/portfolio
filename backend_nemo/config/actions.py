@@ -15,6 +15,14 @@ from nemoguardrails.llm.params import llm_params
 from nemoguardrails.llm.types import Task
 from nemoguardrails.logging.explain import LLMCallInfo
 from nemoguardrails.utils import new_event_dict
+from langchain import LLMChain, PromptTemplate
+from nemoguardrails.logging.callbacks import logging_callback_manager_for_chain
+from nemoguardrails.actions.llm.utils import (
+    get_multiline_response,
+    llm_call,
+    strip_quotes,
+)
+
 
 log = logging.getLogger(__name__)
 
@@ -119,6 +127,7 @@ async def find_category(
     return ActionResult(
         return_value="bad conduct"
     )
+
 
 def init(app: LLMRails):
     app.register_action(find_category, "find_category")
