@@ -21,15 +21,20 @@ log = logging.getLogger(__name__)
 
 @action(is_system_action=True)
 async def check_blocked_terms(context: Optional[dict] = None):
-    bot_response = context.get("bot_message")
+    # Retrieve the bot's response message from the context
+    bot_response = context.get("bot_message", "")
 
-    # A quick hard-coded list of proprietary terms. You can also read this from a file.
-    proprietary_terms = ["siblings", "girlfriend", "parents", "salary"]
+    # A list of proprietary terms. This can also be read from a file for better maintainability.
+    proprietary_terms = ["siblings", "girlfriend", "parents", "salary", "girlfriends"]
 
+    # Convert the bot response to lowercase for case-insensitive comparison
+    bot_response_lower = bot_response.lower()
+
+    # Check if any of the proprietary terms are present in the bot response
     for term in proprietary_terms:
-        if term in bot_response.lower():
+        if term in bot_response_lower:
             return True
-        
+
     return False
 
 

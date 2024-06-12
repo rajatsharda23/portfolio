@@ -20,6 +20,9 @@ define flow user_ask_capabilities
   user_ask_capabilities
   bot_inform_capabilities
 
+define bot_greeting
+  "Hello, I'm Siri! How can I help you today?"
+
 define flow user_greeting
   user_greeting
   bot_greeting
