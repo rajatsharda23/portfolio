@@ -10,13 +10,7 @@ from langchain.llms.base import BaseLLM
 from nemoguardrails import RailsConfig
 from nemoguardrails.actions.actions import ActionResult, action
 from nemoguardrails.actions.llm.utils import llm_call
-from nemoguardrails.context import llm_call_info_var
 from nemoguardrails.llm.params import llm_params
-from nemoguardrails.llm.types import Task
-from nemoguardrails.logging.explain import LLMCallInfo
-from nemoguardrails.utils import new_event_dict
-from langchain import LLMChain, PromptTemplate
-from nemoguardrails.logging.callbacks import logging_callback_manager_for_chain
 from nemoguardrails.actions.llm.utils import (
     get_multiline_response,
     llm_call,

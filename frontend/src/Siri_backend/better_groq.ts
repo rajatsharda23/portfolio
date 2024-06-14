@@ -4,7 +4,7 @@ import { StringOutputParser } from "@langchain/core/output_parsers"
 
 async function* newGroq(userMessage: string) {
   const model = new ChatGroq({
-    apiKey: process.env.GROQ_API_KEY,
+    apiKey: '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',
   })
   const prompt = ChatPromptTemplate.fromMessages([
     ["system", "You are Siri, a helpful AI Assistant to help the user answer any question"],
