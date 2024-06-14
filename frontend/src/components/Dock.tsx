@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { RootState } from "../redux/store"
 import { setCurrApp } from "../redux/slices/homePage/appSlice"
 import siriLogo from '../assets/icons/sirii/icons8-siri-96.png'
+import catchYa from '../assets/proj/catchYa.png'
 
 function Dock() {
 
@@ -32,7 +33,7 @@ function Dock() {
         } else if (i === 3) {
           imgSrc = siriLogo
           imgName = 'Siri'
-        }  
+        } 
         else {
           imgSrc = safariImg
           imgName = 'Safari'
