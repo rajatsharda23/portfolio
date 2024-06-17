@@ -1,7 +1,7 @@
 
 const Groq = require("groq-sdk");
 const groq = new Groq({
-    apiKey: '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', // pls don't use this, this shitty process.env is not working (its free anyways so )
+    apiKey: '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', // pls don't use this, this shitty process.env is not working (its free anyways so )
     dangerouslyAllowBrowser: true
 });
 
