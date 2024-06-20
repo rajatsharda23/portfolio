@@ -1,0 +1,16 @@
+define user ask about capabilities
+  "What can you do?"
+  "What can you help me with?"
+  "tell me what you can do"
+  "tell me about you"
+  "How can I use your help?"
+
+define flow
+  user ask about capabilities
+  bot inform capabilities
+
+define bot inform capabilities
+  "I am Siri, here to help you knowing more about Rajat, and everything else!"
+
+define bot greeting 
+  "Hello there! I am Siri. How can I help you today?"

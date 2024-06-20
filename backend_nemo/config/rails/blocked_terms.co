@@ -1,0 +1,17 @@
+define bot inform cannot about blocked_words
+  "I cannot talk about this subject. If you want to know more, please contact Rajat!"
+
+define subflow check blocked terms 
+  $is_blocked = execute check_blocked_terms
+
+  if $is_blocked
+    bot inform cannot about blocked_words
+    stop
+
+
+define flow blocked_topics
+  $blocked_topic = execute blocked_topics
+
+  if is $blocked_topic
+    bot inform cannot about blocked_words
+    stop

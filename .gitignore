@@ -22,6 +22,14 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+<<<<<<< HEAD
 .cache
 .venv
 frontend/node_modules
+=======
+.venv
+frontend/node_modules
+build
+.cache
+backend_nemo/config/__pycache__
+>>>>>>> 8fd73382efe7c6e34d12566d46bdacce19fdd2e4
