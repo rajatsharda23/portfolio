@@ -13,6 +13,7 @@ import { RootState } from '../redux/store'
 import { setSafariUrl, goBack, goForward, setCurrApp } from '../redux/slices/homePage/appSlice'
 import Notepad from './Notepad'
 import VSCode from './VSCode'
+import Siri from './Siri'
 
 const MasterApp = () => {
   const dispatch = useDispatch()

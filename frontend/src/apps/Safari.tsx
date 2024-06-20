@@ -12,6 +12,7 @@ import cVerse from '../assets/sites/Creativerse.png'
 import naruto from '../assets/sites/Narutoo.png'
 import mVerse from '../assets/sites/MovieVerse.png'
 import { setSafariUrl } from '../redux/slices/homePage/appSlice';
+import catchya from '../assets/proj/catchya.png'
 
 const Safari = () => {
 
@@ -134,7 +135,19 @@ const Safari = () => {
                                         MovieVerse 
                                     </div>
                                 </div>
+                                
                             </div>   
+
+                            <div className='flex flex-row space-x-3'>
+                                <div className='font-Apple_Regular text-lg flex items-center justify-center flex-col' onClick={() => window.open("https://catchyaa.streamlit.app/", "_blank")}>
+                                    <div className='flex items-center justify-center pl-2 rounded-lg h-32 w-44'>
+                                        <img src={catchya}  className='rounded-lg' alt="CreatiVerse icon"/>
+                                    </div>
+                                    <div className='text-sm'>
+                                        catchYa
+                                    </div>
+                                </div>                                
+                            </div> 
                         </div>     
                     </div>
                 </div>

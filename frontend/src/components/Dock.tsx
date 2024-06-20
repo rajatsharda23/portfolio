@@ -6,6 +6,8 @@ import notesImg from '../assets/icons/notess.png'
 import { useDispatch, useSelector } from "react-redux"
 import { RootState } from "../redux/store"
 import { setCurrApp } from "../redux/slices/homePage/appSlice"
+import siriLogo from '../assets/icons/sirii/icons8-siri-96.png'
+import catchYa from '../assets/proj/catchYa.png'
 
 function Dock() {
 
@@ -17,7 +19,7 @@ function Dock() {
       onMouseLeave={() => mouseX.set(Infinity)}
       className="mx-auto flex h-20 items-end gap-4 rounded-xl backdrop-filter backdrop-brightness-105 backdrop-blur-3xl px-4 pb-5 border-opacity-20 border border-slate-100"
     >
-      {new Array(3).fill(0).map((_, i) => {
+      {new Array(4).fill(0).map((_, i) => {
         let imgSrc, imgName
         if (i === 0) {
           imgSrc = notesImg
@@ -28,7 +30,11 @@ function Dock() {
         } else if (i === 2) {
           imgSrc = vscodeImg
           imgName = 'VSCode'
-        } else {
+        } else if (i === 3) {
+          imgSrc = siriLogo
+          imgName = 'Siri'
+        } 
+        else {
           imgSrc = safariImg
           imgName = 'Safari'
         }
@@ -45,7 +51,6 @@ function AppIcon({ mouseX, imgSrc, imgName }: { mouseX: MotionValue, imgSrc: str
 
   const handleClick = (app: string) => {
     dispatch(setCurrApp(app))
-    console.log(app)
   }
   
 

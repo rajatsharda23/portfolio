@@ -111,7 +111,7 @@ const Notepad = () => {
               <div className='font-Apple_Regular text-lg pt-8'>
                 Contact me by - 
                 <ul className="list-disc list-inside">
-                  <li>Email: <a href='mailto:rajatsharda23@gmail.com' target='_blank' className=' underline text-notepadSelected'>rajatsharda23@gmail.com</a></li>
+                  <li>Email: <a href='mailto:rajatsharda2001gmail.com' target='_blank' className=' underline text-notepadSelected'>rajatsharda2001@gmail.com</a></li>
                   <li>Github: <a href='https://github.com/rajatsharda23' target='_blank' className=' underline text-notepadSelected'>@rajatsharda23</a></li>
                   <li>LinkedIn: <a href='https://www.linkedin.com/in/rajat-sharda-3b562622b/' target='_blank' className=' underline text-notepadSelected'>rajat-sharda</a></li>
                   <li>Twitter: <a href='https://x.com/RajatSharda_' target='_blank' className=' underline text-notepadSelected'>rajatsharda_</a></li>
