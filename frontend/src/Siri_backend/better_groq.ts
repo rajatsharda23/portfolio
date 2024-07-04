@@ -49,7 +49,7 @@ class ConversationMemory {
 
 async function* newGroq(userMessage: string, memory: ConversationMemory) {
   const model = new ChatGroq({
-    apiKey: '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',
+    apiKey: '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', //It is free onli, don't exploit pls :). Didn't had the time to write the server side code to use the env file. 🥹
     model: "llama3-8b-8192"
   })
 
