@@ -22,9 +22,8 @@ function getMacOsFormattedDate(): string {
     const formattedDate = new Intl.DateTimeFormat('en-US', options).format(d);
 
 
-    return formattedDate.replace(/,/g, '');
+    return formattedDate.replace(/,/g, '')
 }
-  
 
 const Navbar = () => {
 
