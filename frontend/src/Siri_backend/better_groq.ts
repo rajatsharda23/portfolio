@@ -25,6 +25,8 @@ import { ChatGroq } from "@langchain/groq";
 import { ChatPromptTemplate } from "@langchain/core/prompts";
 import { StringOutputParser } from "@langchain/core/output_parsers";
 
+const api_key = process.env.REACT_APP_GROQ_API_KEY
+
 class ConversationMemory {
   private maxLength: number;
   private chatHistory: [string, string][];
@@ -49,7 +51,7 @@ class ConversationMemory {
 
 async function* newGroq(userMessage: string, memory: ConversationMemory) {
   const model = new ChatGroq({
-    apiKey: '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', //It is free onli, don't exploit pls :). Didn't had the time to write the server side code to use the env file. 🥹
+    apiKey: api_key, //It is free onli, don't exploit pls :). Didn't had the time to write the server side code to use the env file. 🥹
     model: "llama3-8b-8192"
   })
 
