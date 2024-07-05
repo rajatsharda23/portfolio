@@ -26,6 +26,7 @@ import { ChatPromptTemplate } from "@langchain/core/prompts";
 import { StringOutputParser } from "@langchain/core/output_parsers";
 
 const api_key = process.env.REACT_APP_GROQ_API_KEY
+console.log(api_key)
 
 class ConversationMemory {
   private maxLength: number;
