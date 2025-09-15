@@ -1,32 +1,9 @@
-// import { ChatGroq } from "@langchain/groq"
-// import { ChatPromptTemplate } from "@langchain/core/prompts"
-// import { StringOutputParser } from "@langchain/core/output_parsers"
-
-// async function* newGroq(userMessage: string) {
-//   const model = new ChatGroq({
-//     apiKey: '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',
-//   })
-//   const prompt = ChatPromptTemplate.fromMessages([
-//     ["system", "You are Siri, a helpful AI Assistant to help the user answer any question"],
-//     ["human", userMessage],
-//   ])
-//   const outputParser = new StringOutputParser()
-//   const chain = prompt.pipe(model).pipe(outputParser)
-//   const response = await chain.stream({
-//     input: userMessage,
-//   })
-//   for await (const item of response) {
-//     yield item
-//   }
-// }
-
 // export default newGroq
 import { ChatGroq } from "@langchain/groq";
 import { ChatPromptTemplate } from "@langchain/core/prompts";
 import { StringOutputParser } from "@langchain/core/output_parsers";
 
-const api_key = process.env.REACT_APP_GROQ_API_KEY
-console.log(api_key)
+const api_key = process.env.REACT_APP_GROQ_API_KEY;
 
 class ConversationMemory {
   private maxLength: number;
@@ -52,14 +29,17 @@ class ConversationMemory {
 
 async function* newGroq(userMessage: string, memory: ConversationMemory) {
   const model = new ChatGroq({
-    apiKey: api_key, //It is free onli, don't exploit pls :). Didn't had the time to write the server side code to use the env file. 🥹
-    model: "llama3-8b-8192"
-  })
+    apiKey: api_key, //It is free onli, don't exploit pls :) 🥹
+    model: "openai/gpt-oss-20b",
+  });
 
   memory.addMessage("human", userMessage);
 
   const prompt = ChatPromptTemplate.fromMessages([
-    ["system", "You are Siri, a helpful AI Assistant to help the user answer any question. This is the context for answering questions related to Rajat, to which you may answer only if asked for - Studies in Delhi Technological University(DTU), erstwhile Delhi College of Engineering(DCE). Pursuing B.Tech in Electronics and Communications Engineering, and a Minor in Computer Science. Did his 11th-12th class from Mayo International School, in Delhi. Scored 91.6% in CBSE Board. Did his schooling from nursery to class 10th from DPS Indirapuram, Ghaziabad. Proud dipsite. He likes to play the violin, won a couple national level competitions for his school, composed the string sections of a song that have 2.8+Mn hits on youtube. Love to play badminton and football. Favorite team would be real Madrid, and player would be 1st Ronaldo and 2nd Sunil Chettri. He lives in Delhi, and is ok for relocation for work purposes. He is also comfortable with remote work. Rajat Sharda Email: rajatsharda23@gmail.com Ph: +91 7982503475 Portfolio: rajat-portfolio23.netlify.app | LinkedIn: linkedin.com/in/rajatsharda | GitHub: github.com/rajatsharda) is a proficient technologist with expertise in Java, Python, C++, JavaScript, TypeScript, Redux, HTML, CSS, React, Node.js, Tailwind CSS, Streamlit, Colang, GitHub, Visual Studio, Postman, NeMo-Guardrails, and OpenAI, currently pursuing a B.Tech. in Electronics and Communications Engineering with a minor in Computer Science Engineering at Delhi Technological University (CGPA: 8.50). He has demonstrated practical skills through professional experience, including roles such as Software Engineering Intern at TechiZen India Pvt. Ltd., where he successfully implemented AI teaching instructors using NeMo Guardrails, Langchain, Colang, AWS, and Node.js. Rajat has also freelanced on projects involving OpenAI Embeddings, Pinecone, and Streamlit. His academic projects include developing a personal portfolio website inspired by macOS, integrating features such as Shut Down, Sleep, Restart, and draggable-resizable applications like NotePad, Safari, and VS Code, utilizing Redux for robust state management, and engineering Siri, an AI Assistant powered by Llama-3 capable of answering queries about himself while maintaining conversational memory. Additionally, he developed RhythMate, a Tinder-inspired web application using React and Tailwind CSS to facilitate user engagement and connections, utilizing MongoDB and Express.js for data management, and integrating the Spotify API to enhance matchmaking based on music preferences. Another notable project includes the Invictus Website for DTU Technical Fest’24, where he directed a team of six in designing and launching the official website, achieving a 60% increase in online registrations within the first week, and enabling features for event registration, team formation, and participation summary for all fest activities. He also created CreatiVerse, a Pinterest-inspired web application using React, Sanity, Tailwind CSS, and Google Auth API, enabling users to add, discover, and save content pins, perform category-based searches, view user profiles, and add comments, integrating Sanity for content management and Google authentication. His other projects include Movieverse (a Netflix Clone), where he refined backend functionality and integrated Firebase for email/password authentication, including a forgot password feature, and implemented Stripe payment gateway for seamless subscription purchases, and a Retail Management System (RMS), where he developed a Java and MySQL-based application encompassing inventory, customer, and order management functionalities, utilizing Javax Swing to design an intuitive UI. Rajat is actively engaged in extracurricular activities, including organizing and leading events at VHIAAN’24 and INVICTUS’24, serving as a DSA Mentor at IEEE DTU, coordinating activities at CS-IEEE DTU, leading the flagship Hackathon of IEEE DTU (VIHAAN 6.0), freelancing as an SME for Physics and Maths, actively participating in Madhurina (the Music Society of DTU) with a notable achievement of over 2.8 million views on YouTube for his violin performances, achieving 2nd runners-up at the Inter-DPS National Level Instrumental Orchestra, and volunteering at NSSS Foundation NGO."],
+    [
+      "system",
+      "You are Siri, a helpful AI Assistant to help the user answer any question. This is the context for answering questions related to Rajat, to which you may answer only if asked for - Rajat Sharda (rajatsharda23@gmail.com | +91 7982503475) is proficient in Java, Python, C++, JavaScript, TypeScript, Redux, HTML, CSS, React, NodeJs, and Tailwind CSS, and has experience with tools and frameworks such as Github, Visual Studio, Postman, NeMo-Guardrails, OpenAI, Gemini, Claude, AWS, Azure, and GCP, as well as databases including MySQL, SQLite, Firebase, MongoDB, and Sanity; he earned his B.Tech. at Delhi Technological University (CGPA 8.50) with a major in Electronics and Communications Engineering and a minor in Computer Science Engineering; his professional experience includes being a Software Engineer at TechiZen India (July 2025–Present), in which he added a new service to generate any number of questions related to career context from sample questions or descriptions, and integrated curriculum creation in Learnosity and assessment addition on the web from created questions to reduce manual effort; prior to this, he held a Software Engineering Internship at Amazon India (January 2025–June 2025), in which he architected and productionized HLD and LLD for migrating a Theft-Fraud-Abuse-Wastage detection rule leading to improved data consistency and lower service downtime by 10%; there he also migrated 2 AWS Lambda data syncing jobs to EventBridge, created and modified 3 APIs for aggregating expenses of over 1M+ employees, leveraged AWS StepFunctions, Lambda, OpenSearch, DynamoDB, and S3 instead of legacy Redshift, cutting costs by $80k/year, and enabled Cloudwatch monitoring, metric alarms, and deployments via AWS CDK to save manual effort; earlier, as an AI Engineering Intern at TechiZen India (May–December 2024), he built and deployed robust AI solutions such as a RAG-based chatbot using Google Vertex AI, AWS Bedrock, LangChain, and Ollama handling over 1,500 contextual queries monthly, as well as an AI-powered quiz generator that reduced content creation time by 83% through automation from PDFs and YouTube, plus an image recognition feature using ChatGPT-4o; here he also developed backend APIs for multi-modal LLM orchestration and metadata-aware retrieval, streamlined assessment validation and scalable pipelines using AWS Lambda, API Gateway, GCP Discovery Engine, and Learnosity integration, designed an SEO-optimized website with Next.js, TypeScript, TailwindCSS, and Redux with Microsoft Clarity integration achieving a 65% boost in scroll depth and 40% higher CTR, and implemented client AI teaching instructor with NeMo Guardrails to restrict the LLM to topic, profanity, jailbreaking, and hallucination checks with over 90% accuracy; his academic projects include Vidya AI (React, NodeJs, AWS, NeMo Guardrails, Langchain, Gemini-1.5-Flash, September 2024), in which he modeled and built a Socratic teaching AI using Google’s Gemini that filters out profanity and jailbreaking while maintaining a 95% performance score and qualifying for round 2 in Google’s GenAI Hackathon, Portfolio (React, TypeScript, Redux, Tailwind CSS, NeMo Guardrails, Groq API, May–June 2024), in which he developed a macOS-inspired personal site with draggable apps and an AI assistant powered by Llama-3 for fast self-query responses, and Invictus Website for DTU Tech Fest’24 (React, NextJs, Tailwind, Dec 2023–Jan 2024), in which he directed a team of six to design, develop, and launch the official fest website achieving a 60% increase in registrations and implementing event registration, team formation and summaries to increase footfall by 20%; his extracurricular activities include serving as Organizer and Events Lead at VHIAAN’24, INVICTUS’24, and Co-Head at INVICTUS’23 (DTU Tech-Fest), freelancing as a Subject Matter Expert for Physics and Maths with cross-checking of over 10,000 high-school level questions, and being an active member of the Madhurina Music Society of DTU with a diploma in Violin and 2.8 million+ views on YouTube.",
+    ],
     ...memory.getHistory(),
   ]);
 
@@ -69,9 +49,9 @@ async function* newGroq(userMessage: string, memory: ConversationMemory) {
     input: userMessage,
   });
 
-  let completeResponse = '';
+  let completeResponse = "";
   for await (const item of response) {
-    completeResponse += item || '';
+    completeResponse += item || "";
     yield item;
   }
   memory.addMessage("assistant", completeResponse);
