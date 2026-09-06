@@ -1,18 +1,40 @@
-import React, { useEffect, useState } from 'react'
-import { Resizable, ResizableBox } from 'react-resizable';
-import Draggable, {DraggableCore} from 'react-draggable'
-import '../components/Resizable.css'
-import { ListFormat } from 'typescript';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react'
+import { useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
-import rMate from '../assets/sites/RhythMate.png'
+import '../components/Resizable.css'
 import inv from '../assets/sites/Invictus.png'
-import r2d2 from '../assets/sites/R2D2.png'
-import cVerse from '../assets/sites/Creativerse.png'
-import naruto from '../assets/sites/Narutoo.png'
-import mVerse from '../assets/sites/MovieVerse.png'
-import { setSafariUrl } from '../redux/slices/homePage/appSlice';
 import catchya from '../assets/proj/catchya.png'
+import rMate from '../assets/sites/RhythMate.png'
+
+type ProjectCardProps = {
+  title: string
+  subtitle?: string
+  onClick?: () => void
+  image?: string
+  placeholderClass?: string
+}
+
+const ProjectCard = ({ title, subtitle, onClick, image, placeholderClass }: ProjectCardProps) => (
+  <div
+    className='font-Apple_Regular text-lg flex items-center justify-center flex-col cursor-pointer'
+    onClick={onClick}
+  >
+    <div className='flex items-center justify-center rounded-lg h-32 w-44 overflow-hidden'>
+      {image ? (
+        <img src={image} className='rounded-lg h-full w-full object-cover' alt={`${title} icon`} />
+      ) : (
+        <div className={`rounded-lg h-full w-full flex flex-col items-center justify-center px-3 text-center ${placeholderClass || 'bg-gradient-to-br from-gray-700 to-gray-900'}`}>
+          <div className='font-Apple_Bold text-base text-white'>{title}</div>
+          {subtitle ? <div className='font-Apple_Regular text-[10px] text-gray-200 mt-1'>{subtitle}</div> : null}
+        </div>
+      )}
+    </div>
+    <div className='text-sm mt-1'>
+      {title}
+      {subtitle && image ? <span className='text-gray-400 text-xs'> · {subtitle}</span> : null}
+    </div>
+  </div>
+)
 
 const Safari = () => {
 
@@ -76,6 +98,7 @@ const Safari = () => {
                 </div>
 
 
+
                 <div className='p-20 pt-2'>
                     <div className='font-Apple_Bold text-3xl'>
                         Projects
@@ -83,71 +106,43 @@ const Safari = () => {
                     <div className='flex flex-row space-x-4 pt-6 items-end justify-start'>
                         <div className='flex flex-col space-y-4'>
                             <div className='flex flex-row space-x-3'>
-                                <div className='font-Apple_Regular text-lg flex items-center justify-center flex-col' onClick={() => window.open("https://rhythmate-frontend.onrender.com", "_blank")}>
-                                    <div className='flex items-center justify-center pl-2 rounded-lg h-32 w-44'>
-                                        <img src={rMate} className='rounded-lg' alt="RhythMate icon"/>
-                                    </div>
-                                    <div className='text-sm'>
-                                        RhythMate
-                                    </div>
-                                </div>    
-                                <div className='font-Apple_Regular text-lg flex items-center justify-center flex-col' onClick={() => window.open("https://r2d2bot.streamlit.app/", "_blank")}>
-                                    <div className='flex items-center justify-center pl-2 rounded-lg h-32 w-44'>
-                                        <img src={r2d2} className='rounded-lg' alt="R2D2 icon"/>
-                                    </div>
-                                    <div className='text-sm'>
-                                        R2/D2
-                                    </div>
-                                </div>   
-                                
-                                <div className='font-Apple_Regular text-lg flex items-center justify-center flex-col' onClick={() => window.open("https://www.invictusdtu.in/", "_blank")}>
-                                    <div className='flex items-center justify-center pl-2 rounded-lg h-32 w-44'>
-                                        <img src={inv}  className='rounded-lg' alt="Invictus icon"/>
-                                    </div>
-                                    <div className='text-sm'>
-                                        Invictus
-                                    </div>
-                                </div>
+                                <ProjectCard
+                                  title='VidyaAI'
+                                  subtitle='Socratic AI teacher'
+                                  placeholderClass='bg-gradient-to-br from-indigo-600 to-purple-800'
+                                  onClick={() => window.open('https://github.com/rajatsharda23/VidyaAI', '_blank')}
+                                />
+                                <ProjectCard
+                                  title='Portfolio'
+                                  subtitle='macOS + Siri'
+                                  placeholderClass='bg-gradient-to-br from-sky-600 to-blue-900'
+                                  onClick={() => window.open('https://rajat-portfolio23.netlify.app/', '_blank')}
+                                />
+                                <ProjectCard
+                                  title='Invictus24'
+                                  image={inv}
+                                  onClick={() => window.open('https://www.invictusdtu.in/', '_blank')}
+                                />
                             </div>
 
                             <div className='flex flex-row space-x-3'>
-                                <div className='font-Apple_Regular text-lg flex items-center justify-center flex-col' onClick={() => window.open("https://creativerse23.netlify.app/login", "_blank")}>
-                                    <div className='flex items-center justify-center pl-2 rounded-lg h-32 w-44'>
-                                        <img src={cVerse}  className='rounded-lg' alt="CreatiVerse icon"/>
-                                    </div>
-                                    <div className='text-sm'>
-                                        CreatiVerse
-                                    </div>
-                                </div>
-                                <div className='font-Apple_Regular text-lg flex items-center justify-center flex-col' onClick={() => window.open('https://narutoapp.netlify.app/', "_blank")}>
-                                    <div className='flex items-center justify-center pl-2 rounded-lg h-32 w-44'>
-                                        <img src={naruto} className='rounded-lg' alt="Narutoo icon"/>
-                                    </div>
-                                    <div className='text-sm'>
-                                        Maze Path Finder 
-                                    </div>
-                                </div>
-                                <div className='font-Apple_Regular text-lg flex items-center justify-center flex-col' onClick={() => window.open('https://movieverse-n9uh.vercel.app/', "_blank")}>
-                                    <div className='flex items-center justify-center pl-2 rounded-lg h-32 w-44'>
-                                        <img src={mVerse} className='rounded-lg' alt="MovieVerse icon"/>
-                                    </div>
-                                    <div className='text-sm'>
-                                        MovieVerse 
-                                    </div>
-                                </div>
-                                
-                            </div>   
-
-                            <div className='flex flex-row space-x-3'>
-                                <div className='font-Apple_Regular text-lg flex items-center justify-center flex-col' onClick={() => window.open("https://catchyaa.streamlit.app/", "_blank")}>
-                                    <div className='flex items-center justify-center pl-2 rounded-lg h-32 w-44'>
-                                        <img src={catchya}  className='rounded-lg' alt="CreatiVerse icon"/>
-                                    </div>
-                                    <div className='text-sm'>
-                                        catchYa
-                                    </div>
-                                </div>                                
-                            </div> 
+                                <ProjectCard
+                                  title='catchYa'
+                                  image={catchya}
+                                  onClick={() => window.open('https://catchyaa.streamlit.app/', '_blank')}
+                                />
+                                <ProjectCard
+                                  title='Wingy'
+                                  subtitle='WIP · private DOM companion'
+                                  placeholderClass='bg-gradient-to-br from-emerald-700 to-slate-900'
+                                />
+                                <ProjectCard
+                                  title='RhythMate'
+                                  subtitle='earlier work'
+                                  image={rMate}
+                                  onClick={() => window.open('https://rhythmate-frontend.onrender.com', '_blank')}
+                                />
+                            </div>
                         </div>     
                     </div>
                 </div>
