@@ -1,6 +1,8 @@
 const webpack = require("webpack");
 
 module.exports = function override(config) {
+  const processBrowser = require.resolve("process/browser.js");
+
   config.resolve.fallback = {
     ...(config.resolve.fallback || {}),
     path: require.resolve("path-browserify"),
@@ -8,17 +10,27 @@ module.exports = function override(config) {
     crypto: require.resolve("crypto-browserify"),
     buffer: require.resolve("buffer/"),
     stream: require.resolve("stream-browserify"),
-    process: require.resolve("process/browser.js"),
-    zlib: require.resolve("browserify-zlib"),
+    process: processBrowser,
     vm: require.resolve("vm-browserify"),
+    zlib: require.resolve("browserify-zlib"),
+  };
+
+  config.resolve.alias = {
+    ...(config.resolve.alias || {}),
+    "process/browser": processBrowser,
   };
 
   config.plugins = [
     ...(config.plugins || []),
     new webpack.ProvidePlugin({
-      process: "process/browser.js",
+      process: processBrowser,
       Buffer: ["buffer", "Buffer"],
     }),
+  ];
+
+  config.ignoreWarnings = [
+    ...(config.ignoreWarnings || []),
+    /Failed to parse source map/,
   ];
 
   return config;
