@@ -1,0 +1,15 @@
+[build]
+  base = "frontend"
+  command = "npm run build"
+  publish = "build"
+
+[build.environment]
+  NODE_VERSION = "18"
+  CI = "true"
+  GENERATE_SOURCEMAP = "false"
+
+[dev]
+  framework = "#custom"
+  command = "npm start"
+  targetPort = 3000
+  autoLaunch = false
