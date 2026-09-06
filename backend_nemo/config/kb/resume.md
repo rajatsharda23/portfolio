@@ -1,74 +1,63 @@
-# RajatSharda
+# Rajat Sharda
 
-```
-Email:rajatsharda23@gmail.com|Ph:+91 7982503475 |Portfolio|LinkedIn|Github
-```
-## TECHNICALSKILLS:
+**Email:** rajatsharda23@gmail.com  
+**Phone:** +91 7982503475  
+**Portfolio:** https://rajat-portfolio23.netlify.app/  
+**LinkedIn:** https://www.linkedin.com/in/rajat-sharda-3b562622b/  
+**GitHub:** https://github.com/rajatsharda23
 
-**Languages:** Java,Python,C++,JavascriptTypeScript,Redux,HTML,CSS,React,NodeJs,TailwindCSS,Streamlit,Colang
-**Tools/Frameworks:** Github,VisualStudio,Postman,NeMo-Guardrails,OpenAI
-**Databases:** MYSQL,SQLite,Firebase,MongoDB **,** Sanity
+## Technical Skills
 
-**EDUCATION:
-B.Tech.-** DelhiTechnologicalUniversity(CGPA:8.50) **December 2021 - Current**
+- **Languages / Frontend:** Java, Python, C++, JavaScript, TypeScript, Redux, HTML, CSS, React, Node.js, Tailwind CSS
+- **Tools / Platforms:** GitHub, Visual Studio, Postman, NeMo-Guardrails, OpenAI, Gemini, Claude, AWS, Azure, GCP
+- **Databases:** MySQL, SQLite, Firebase, MongoDB, Sanity
 
-```
-Major- ElectronicsandCommunicationsEngineering, Minor - ComputerScience
-```
-**PROFESSIONALEXPERIENCE:
-Freelance,TechiZenIndiaPvt.Ltd.|** OpenAIEmbeddings,Langchain,Pinecone,Streamlit **- March 2024 - April 2024**
+## Education
 
-- EngineeredaPythonapplicationintegratingOpenAI'slanguagemodelandStreamlitforPDFfileanalysis,enhancingdocumentprocessing
-    efficiencyby50%.
-- IntegratedPineconefordatastorageandretrieval,implementingPDFsummarizationandcomplexqueryingfeatures,usedby100+users.
+**B.Tech. — Delhi Technological University (CGPA: 8.50)**  
+December 2021 – Current  
 
-**ACADEMICPROJECTS:
-RhythMate|** React,TailwindCSS,MongoDB,NodeJs,Express.js,SpotifyAPI **- Link January 2024 - February 2024**
+Major: Electronics and Communications Engineering  
+Minor: Computer Science Engineering
 
-- DevelopedaTinder-inspiredwebapplicationusingReactandTailwindCSS,facilitatinguserengagementandconnections
-- UtilizedMongoDBandExpress.jsfordatamanagement,integratedSpotifyAPItoenhancematchmakingbasedonmusicpreferences
-- Implementedfeaturesincludinguserauthentication,profilecreation,swiping,andreal-timemessagingtoensuresmoothUX
+## Professional Experience
 
-**ChatBox(R2/D2)|** OpenAI’sgpt-3.5-turbo-instruct,NeMo-GuardRails,Streamlit,Colang **- Link December 2023 - January 2024**
+### Software Engineer | TechiZen India — July 2025 – Present
 
-- Createdachatbotnamed"R2/D2"usingOpenAI'sGPTAPItoanswerqueriesrelatedtotheStarWarsuniverse
-- ImplementedNeMo-GuardRailstomaintaincontextandreducethechatbotfromgeneratingnonsensicalresponsesby95%
-- UtilizedPython,Streamlit,andColangtodevelopanddeploythechatbot,ensuringuser-friendlyinteractionandaccessibility
+- Added a service to generate any number of career-context questions from one or multiple sample questions or descriptions.
+- Integrated Learnosity activity creation and web assessment addition from generated questions, reducing manual effort.
 
-**InvictusWebsite(DTUTechnicalFest’24)|** React,NextJs,Tailwind **- Link December 2023 - January 2024**
+### Software Engineering Intern | Amazon India — January 2025 – June 2025
 
-- DirectedateamofsixindesigningandlaunchingtheofficialwebsiteforINVICTUS'24,thetech-festofDTU;achieveda60%increaseinonline
-    registrationswithinthefirstweek.
-- Enabledfeaturesforeventregistration,teamformation,andparticipationsummaryforallfestactivities
-**CreatiVerse|** React,Sanity,TailwindCSS,GoogleAuthAPI- **Link July 2023 - August 2023**
-- CreatedaPinterest-inspiredwebapplicationusingReact,Sanity,TailwindCSS,andGoogleAuthAPI
-- Enableduserstoadd,discover,andsavecontentpins;performcategory-basedsearch,viewuserprofilesandaddcomments
-- IntegratedSanityforcontentmanagementandGoogleauthenticationtoenhanceplatformfunctionalityanduserexperience.
+- Architected and productionized HLD/LLD for Theft-Fraud-Abuse-Wastage (TFAW) detection rule migration, improving data consistency and reducing service downtime by ~10%. Migrated 2 data-syncing jobs from AWS Lambda to EventBridge.
+- Created and modified 3 APIs aggregating expenses for 1M+ employees. Used AWS Step Functions and EventBridge for workflow automation; Lambda, OpenSearch, DynamoDB, and S3 instead of legacy Redshift, reducing ~$80k/year.
+- Enabled CloudWatch metrics and alarms for new packages; deployed via AWS CDK, reducing manual effort.
 
-**MazePathFinder|** JavaScript,HTML,CSS,JQuery- **Link March 2023 - April 2023**
+### AI Engineering Intern | TechiZen India — May 2024 – December 2024
 
-- AuthoredawebappusingJavaScript,HTML,CSS,andjQueryfeaturinga2Dgridmazewithcustomizablestartandendcells.
-- Implementedobstacleaddition,multipledestinationpoints,andversatilepathfindingsolutionsusingBFS,Dijkstra,andA*algorithm
+- Built and deployed AI solutions including a RAG chatbot (Google Vertex AI, AWS Bedrock, LangChain, Ollama) handling 1,500+ contextual queries/month, and an AI quiz generator that cut content creation time by 83% (PDF/YouTube to assessments) plus image recognition with ChatGPT-4o.
+- Developed backend APIs for multi-modal LLM orchestration and metadata-aware retrieval using AWS Lambda, API Gateway, GCP Discovery Engine, and Learnosity.
+- Designed an SEO-oriented Next.js + TypeScript + Tailwind + Redux site with Microsoft Clarity (~65% scroll depth boost, ~40% higher CTR).
+- Implemented an LLM teaching instructor with NeMo Guardrails for topic restriction, profanity, jailbreak, and hallucination checks (>90% success rate).
 
-**Movieverse(NetflixClone)|** JavaScript,HTML,Firebase,Stripe- **Link September 2023**
+## Academic Projects
 
-- RefinedbackendfunctionalityandintegratedFirebaseforemail/passwordauthentication,includingforgotpasswordfeature
-- ImplementedStripepaymentgatewayforseamlesssubscriptionpurchasestherebyenhancingtheplatform'smonetizationcapabilities
+### Vidya AI — React, Node.js, AWS, NeMo Guardrails, LangChain, Gemini 1.5 Flash — September 2024
 
-**RetailManagementSystem(RMS)|** Java,MySQL,Javaxswing- **May 2022 - July 2022**
+- Smart AI teacher using Gemini with Socratic teaching; resists profanity and jailbreaks. Qualified for round 2 of Google GenAI Hackathon (~95% success rate).
 
-- DevelopedaJavaandMySQL-basedRMSapplication,encompassinginventory,customer,andordermanagementfunctionalities
-- UtilizedJavaxSwingtodesignanintuitiveUI,facilitatingstreamlinedoperationsandaccurateordertotalcalculations
+### Portfolio — React, TypeScript, Redux, Tailwind CSS, NeMo Guardrails, Groq API — May 2024 – June 2024
 
-## EXTRACURRICULARACTIVITIES:
+- macOS-inspired personal portfolio with Shut Down / Sleep / Restart and draggable-resizable apps (Notepad, Safari, VS Code); Redux state management.
+- Siri AI assistant powered by Groq Llama-3 with conversational memory about Rajat.
 
-● **Organizer&EventsLead** atVHIAAN’24,INVICTUS’24,and **Co-Head** atINVICTUS’23(Tech-FestofDTU)
-● **DSAMentor** for150+studentsatIEEEDTU,responsibleforplanningthecourseandsessionsforDSASIG
-● **ComputerSocietyCoordinator** ,responsibleformanagingthewebsitesandallotheractivitiesatCS-IEEEDTU
-● **TeamLead** atVIHAAN6.0-flagshipHackathonofIEEEDTU
-● Freelancedas **SME** forPhysicsandMaths
-● ActivememberofMadhurina( **MusicSocietyofDTU** )withaninterestinplayingviolin(achieved **2.8M+** viewson **YouTube** )
-● Awarded **2ndrunners-up** outof30+schoolsacrossIndiaatInter-DPS **NationalLevel** InstrumentalOrchestra
-● VolunteeratNSSSFoundationNGO
+### Invictus Website (DTU Technical Fest 24) — React, Next.js, Tailwind — December 2023 – January 2024
 
+- Led a team of six to design and launch INVICTUS 24; ~60% increase in online registrations in week one.
+- Event registration, team formation, and participation summary features; ~20% increase in total footfall.
 
+## Extracurricular Activities
+
+- Organizer and Events Lead at VHIAAN 24, INVICTUS 24; Co-Head at INVICTUS 23 (DTU tech fest)
+- Freelance SME for Physics and Maths (cross-checking 10k+ high-school questions)
+- Active member of Madhurina (DTU Music Society); violin diploma; 2.8M+ YouTube views

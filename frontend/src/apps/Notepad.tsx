@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import { Resizable, ResizableBox } from 'react-resizable'
-import Draggable, { DraggableCore } from 'react-draggable'
+import React, { useState } from 'react'
 import '../components/Resizable.css'
 
 const Notepad = () => {
@@ -59,13 +57,15 @@ const Notepad = () => {
               </div>
 
               <div className='font-Apple_Regular text-lg pt-8'>
-                Hi there! I'm a pre-final student at <a href='https://dtu.ac.in/' target='_blank' className=' underline text-notepadSelected'>Delhi Technological University</a> pursuing 
-                Electronics and Communications Engineering, with a minor in Computer Science. I have a keen interest in Generative AI and 
-                am experienced in building and designing exciting websites!
+                Hi! I'm Rajat — Software Engineer at <a href='https://www.linkedin.com/company/techizen' target='_blank' rel='noreferrer' className=' underline text-notepadSelected'>TechiZen</a> (Jul 2025–Present),
+                previously an Amazon SWE Intern (Jan–Jun 2025) and TechiZen AI Intern (May–Dec 2024).
+                I studied <a href='https://dtu.ac.in/' target='_blank' rel='noreferrer' className=' underline text-notepadSelected'>B.Tech at Delhi Technological University</a> in
+                Electronics and Communications Engineering with a CSE minor (CGPA 8.50).
+                I care about generative AI, solid backend systems, and building delightful web experiences.
               </div>
 
               <div className='font-Apple_Regular text-lg pt-8'>
-                I am an avid rock fan, who plays the violin and guitar. I also like to play football and badminton.
+                Outside of work I'm an avid rock fan who plays violin and guitar, and I enjoy football and badminton.
               </div>
 
               <br />
@@ -75,8 +75,10 @@ const Notepad = () => {
                 Résumé
                 <div className='font-Apple_Regular text-lg pt-4'>
                   <ul className="list-disc list-inside">
-                    <li>Normal Version: <a href="https://docs.google.com/document/d/1TURpRTytl0NrM---_L37zU43SrBD8QJh/edit?usp=sharing&ouid=112629307061188286717&rtpof=true&sd=true" target='_blank' className='underline text-notepadSelected'>Google Docs</a></li>
-                    <li>Interesting Version: <a href='https://rajat-portfolio23.netlify.app/' target='_blank' className=' underline text-notepadSelected'>Portfolio Webiste</a></li>
+                    <li>PDF: <a href="/resume.pdf" target='_blank' rel='noreferrer' className='underline text-notepadSelected'>Download résumé</a></li>
+                    <li>This site: <a href='https://rajat-portfolio23.netlify.app/' target='_blank' rel='noreferrer' className=' underline text-notepadSelected'>Portfolio Website</a></li>
+                    <li>LinkedIn: <a href='https://www.linkedin.com/in/rajat-sharda-3b562622b/' target='_blank' rel='noreferrer' className=' underline text-notepadSelected'>rajat-sharda</a></li>
+                    <li>GitHub: <a href='https://github.com/rajatsharda23' target='_blank' rel='noreferrer' className=' underline text-notepadSelected'>@rajatsharda23</a></li>
                   </ul>
                 </div>  
               </div>
@@ -92,10 +94,10 @@ const Notepad = () => {
               </div>
 
               <div className='font-Apple_Regular text-lg pt-8'>
-                This is inspired by macOS and  <a href='https://github.com/Renovamen' target='_blank' className=' underline text-notepadSelected'>@Renovamen</a>'s portfolio website!
+                This is inspired by macOS and  <a href='https://github.com/Renovamen' target='_blank' rel='noreferrer' className=' underline text-notepadSelected'>@Renovamen</a>'s portfolio website!
                 Developed using React, TypeScript, Redux and Tailwind CSS. <br />
                 <br />
-                <p>The source code is hosted <a href='https://github.com/rajatsharda23/portfolio' target='_blank' className=' underline text-notepadSelected'>here</a></p>
+                <p>The source code is hosted <a href='https://github.com/rajatsharda23/portfolio' target='_blank' rel='noreferrer' className=' underline text-notepadSelected'>here</a></p>
               </div>
             </div>
              : <div></div>}
@@ -111,10 +113,10 @@ const Notepad = () => {
               <div className='font-Apple_Regular text-lg pt-8'>
                 Contact me by - 
                 <ul className="list-disc list-inside">
-                  <li>Email: <a href='mailto:rajatsharda23gmail.com' target='_blank' className=' underline text-notepadSelected'>rajatsharda23@gmail.com</a></li>
-                  <li>Github: <a href='https://github.com/rajatsharda23' target='_blank' className=' underline text-notepadSelected'>@rajatsharda23</a></li>
-                  <li>LinkedIn: <a href='https://www.linkedin.com/in/rajat-sharda-3b562622b/' target='_blank' className=' underline text-notepadSelected'>rajat-sharda</a></li>
-                  <li>Twitter: <a href='https://x.com/RajatSharda_' target='_blank' className=' underline text-notepadSelected'>rajatsharda_</a></li>
+                  <li>Email: <a href='mailto:rajatsharda23@gmail.com' target='_blank' rel='noreferrer' className=' underline text-notepadSelected'>rajatsharda23@gmail.com</a></li>
+                  <li>Github: <a href='https://github.com/rajatsharda23' target='_blank' rel='noreferrer' className=' underline text-notepadSelected'>@rajatsharda23</a></li>
+                  <li>LinkedIn: <a href='https://www.linkedin.com/in/rajat-sharda-3b562622b/' target='_blank' rel='noreferrer' className=' underline text-notepadSelected'>rajat-sharda</a></li>
+                  <li>Twitter: <a href='https://x.com/RajatSharda_' target='_blank' rel='noreferrer' className=' underline text-notepadSelected'>rajatsharda_</a></li>
                 </ul>
               </div>
 
